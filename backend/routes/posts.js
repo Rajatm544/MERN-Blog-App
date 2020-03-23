@@ -9,9 +9,9 @@ router.route("/").get((req, res) => {
 });
 
 //Route to add a new post
-router.route("/add").post((req, res) => {
+router.route("/create").post((req, res) => {
     //Retrieve data for post
-    const { title, body, author, tags } = req.body;
+    const { title, body, author } = req.body;
     const date = Date.parse(req.body.date);
 
     //Create a new Post and save it to DB
@@ -19,7 +19,6 @@ router.route("/add").post((req, res) => {
         title,
         body,
         author,
-        tags,
         date
     });
 
@@ -43,7 +42,6 @@ router.route("/edit/:id").post((req, res) => {
             post.title = req.body.title;
             post.body = req.body.body;
             post.author = req.body.author;
-            post.tags = req.body.tags;
             post.date = Date.parse(req.body.date);
 
             post.save()
