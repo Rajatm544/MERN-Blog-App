@@ -26,7 +26,6 @@ class EditPost extends Component {
                     author: post.data.author,
                     date: post.data.date
                 });
-                console.log(post);
             })
             .catch(err => console.error(err));
     }
@@ -64,7 +63,7 @@ class EditPost extends Component {
     render() {
         return (
             <div>
-                <h1>Edit Post</h1>
+                <h1>Edit Blog Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Title: </label>
@@ -89,12 +88,14 @@ class EditPost extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Edit Blog: </label>
+                        <label>Edit Blog Post: </label>
                         <textarea
                             className="form-control"
                             value={this.state.body}
                             name="body"
                             onChange={this.handleChange}
+                            rows="30"
+                            outline="none"
                         />
                     </div>
                     <div className="form-group">

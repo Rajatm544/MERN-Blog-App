@@ -48,7 +48,7 @@ class CreatePosts extends Component {
     render() {
         return (
             <div>
-                <h1>Create New Post</h1>
+                <h1>Create New Blog Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Title: </label>
@@ -74,11 +74,13 @@ class CreatePosts extends Component {
                     </div>
                     <div className="form-group">
                         <label>Write your Blog: </label>
+
                         <textarea
                             className="form-control"
                             value={this.state.body}
                             name="body"
                             onChange={this.handleChange}
+                            rows="30"
                         />
                     </div>
                     <div className="form-group">
