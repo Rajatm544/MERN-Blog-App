@@ -14,12 +14,14 @@ router.route("/create").post((req, res) => {
     const { title, body, author } = req.body;
     const date = Date.parse(req.body.date);
 
+    const comments = [];
     //Create a new Post and save it to DB
     const newPost = new Post({
         title,
         body,
         author,
-        date
+        date,
+        comments
     });
 
     newPost
@@ -43,6 +45,7 @@ router.route("/edit/:id").post((req, res) => {
             post.body = req.body.body;
             post.author = req.body.author;
             post.date = Date.parse(req.body.date);
+            post.comments = req.body.comments;
 
             post.save()
                 .then(() => res.json("Post Edited"))

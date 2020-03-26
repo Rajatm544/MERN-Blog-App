@@ -59,6 +59,7 @@ class CreatePosts extends Component {
                             value={this.state.title}
                             onChange={this.handleChange}
                             required
+                            placeholder="The Best Title"
                         />
                     </div>
                     <div className="form-group">
@@ -70,24 +71,24 @@ class CreatePosts extends Component {
                             value={this.state.author}
                             onChange={this.handleChange}
                             required
+                            placeholder="John Oliver"
                         />
                     </div>
                     <div className="form-group">
-                        <label>Write your Blog: </label>
-
                         <textarea
                             className="form-control"
                             value={this.state.body}
                             name="body"
                             onChange={this.handleChange}
                             rows="30"
+                            placeholder="Start Blog Post..."
                         />
                     </div>
                     <div className="form-group">
                         <input
                             type="submit"
                             value="Create Post"
-                            className="btn btn-primary btn-lg"
+                            className="btn btn-success btn-lg"
                         />
                     </div>
                 </form>

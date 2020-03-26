@@ -23,8 +23,6 @@ class PostsList extends Component {
     render() {
         return (
             <div>
-                <h2>Top 5 Blogs:</h2>
-
                 {this.state.posts
                     .reverse()
                     .slice(0, 5)

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CommentList from "./CommentList.component";
 
 class Post extends Component {
     constructor(props) {
@@ -37,7 +38,12 @@ class Post extends Component {
             return (
                 <div className="card">
                     <div className="card-body">
-                        <Link to={"/posts/show/" + this.props.post._id}>
+                        <Link
+                            to={"/posts/show/" + this.props.post._id}
+                            style={{
+                                color: "black"
+                            }}
+                        >
                             <h1>{this.props.post.title}</h1>
                             <h4>{this.props.post.author}</h4>
                             <p>
@@ -51,25 +57,30 @@ class Post extends Component {
             );
         } else {
             return (
-                <div className="card">
-                    <div className="card-body">
-                        <h1>{this.state.post.title}</h1>
-                        <h3>{this.state.post.author}</h3>
-                        <time>{this.state.post.date}</time>
-                        <p>{this.state.post.body}</p>
-                        <Link
-                            to={"/posts/edit/" + this.state.post._id}
-                            className="btn btn-primary"
-                        >
-                            Edit
-                        </Link>
-                        <button
-                            onClick={() => this.deletePost(this.state.post._id)}
-                            className="btn btn-danger"
-                        >
-                            Delete
-                        </button>
+                <div>
+                    <div className="card">
+                        <div className="card-body">
+                            <h1>{this.state.post.title}</h1>
+                            <h3>{this.state.post.author}</h3>
+                            <time>{this.state.post.date}</time>
+                            <p>{this.state.post.body}</p>
+                            <Link
+                                to={"/posts/edit/" + this.state.post._id}
+                                className="btn btn-primary"
+                            >
+                                Edit
+                            </Link>
+                            <button
+                                onClick={() =>
+                                    this.deletePost(this.state.post._id)
+                                }
+                                className="btn btn-danger"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
+                    <CommentList post={this.state.post} />
                 </div>
             );
         }

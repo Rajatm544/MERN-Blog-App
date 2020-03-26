@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import "../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 //Import all components
 import Navbar from "./components/Navbar.component";
