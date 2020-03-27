@@ -27,4 +27,5 @@ connection.once("open", () =>
 const postsRouter = require("./routes/posts");
 app.use("/posts", postsRouter);
 
+//Host app at PORT
 app.listen(PORT, () => console.log("Server is running at PORT " + PORT + "!"));
