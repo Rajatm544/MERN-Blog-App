@@ -30,7 +30,7 @@ class Post extends Component {
             .then(res => console.log(res.data))
             .catch(err => console.error(err));
 
-        window.location = "/";
+        window.location = "/posts";
     }
 
     render() {
@@ -47,7 +47,7 @@ class Post extends Component {
                             <h1>{this.props.post.title}</h1>
                             <h4>{this.props.post.author}</h4>
                             <p>
-                                {this.props.post.body.substring(0, 100) + "..."}
+                                {this.props.post.body.substring(0, 200) + "..."}
                             </p>
                             <time>{this.props.post.date}</time>
                             <br />

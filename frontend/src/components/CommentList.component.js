@@ -8,6 +8,7 @@ class CommentList extends Component {
 
         this.state = {
             body: "",
+            imgs: [],
             comments: []
         };
 
@@ -25,7 +26,6 @@ class CommentList extends Component {
         this.setState({
             body: value
         });
-        console.log("Change");
     }
 
     handleSubmit(event) {
@@ -33,7 +33,6 @@ class CommentList extends Component {
 
         const { body } = this.state;
         this.setState({ comments: this.state.comments.push(body) });
-        console.log(this.state.comments);
 
         let updatedPost = this.props.post;
         updatedPost.comments = this.state.comments;
@@ -59,11 +58,26 @@ class CommentList extends Component {
                 <br />
                 {this.state.comments.length ? (
                     <div>
+                        {/* <p>
+                            {"" +
+                                new Date().getHours() +
+                                ":" +
+                                +new Date().getMinutes() +
+                                "    " +
+                                new Date().getDate() +
+                                "/" +
+                                (new Date().getMonth() + 1) +
+                                "/" +
+                                new Date().getFullYear()}
+                        </p> */}
                         {this.state.comments
-                            .reverse()
-                            .slice(0, 3)
+                            .slice(this.state.comments.length - 5)
                             .map(currentcomment => (
-                                <Comment comment={currentcomment} key={n++} />
+                                <Comment
+                                    comment={currentcomment}
+                                    key={n++}
+                                    img={n}
+                                />
                             ))}
                     </div>
                 ) : (
@@ -83,7 +97,7 @@ class CommentList extends Component {
                         <div className="form-group">
                             <input
                                 type="submit"
-                                className="btn btn-primary btn-sm"
+                                className="btn btn-success btn-sm"
                                 value="comment"
                             />
                         </div>

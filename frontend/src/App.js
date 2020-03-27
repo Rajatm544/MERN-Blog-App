@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 //Import all components
 import Navbar from "./components/Navbar.component";
+import Landing from "./components/Landing.component";
 import Post from "./components/Post.component";
 import CreatePost from "./components/CreatePosts.component";
 import EditPost from "./components/EditPost.component";
@@ -14,7 +14,8 @@ const App = () => (
         <Router>
             <Navbar />
             <br />
-            <Route path="/" exact component={PostsList}></Route>
+            <Route path="/" exact component={Landing}></Route>
+            <Route path="/posts" exact component={PostsList}></Route>
             <Route path="/posts/edit/:id" component={EditPost}></Route>
             <Route path="/posts/show/:id" component={Post}></Route>
             <Route path="/posts/create/" component={CreatePost}></Route>

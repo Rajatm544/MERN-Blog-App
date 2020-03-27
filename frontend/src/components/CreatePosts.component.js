@@ -42,7 +42,7 @@ class CreatePosts extends Component {
             .post("http://localhost:5000/posts/create/", Blog)
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
-        window.location = "/";
+        window.location = "/posts";
     }
 
     render() {

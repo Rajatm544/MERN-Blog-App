@@ -25,10 +25,20 @@ class Navbar extends Component {
                 >
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="navbar-item">
-                            <Link to="/" className="nav-link">
+                            <Link to="/posts" className="nav-link">
                                 Posts
                             </Link>
                         </li>
+                        {/* <li className="navbar-item">
+                            <Link to="/register" className="nav-link">
+                                Register
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to="/login" className="nav-link">
+                                Login
+                            </Link>
+                        </li> */}
                         <li className="navbar-item">
                             <Link to="/posts/create" className="nav-link">
                                 New Post
