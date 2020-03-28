@@ -7,7 +7,8 @@ class PostsList extends Component {
         super();
 
         this.state = {
-            posts: []
+            posts: [],
+            n: 5
         };
     }
 
@@ -25,14 +26,27 @@ class PostsList extends Component {
             <div>
                 {this.state.posts
                     .reverse()
-                    .slice(0, 5)
+                    .slice(0, this.state.n)
                     .map(currentPost => (
-                        <Post
-                            post={currentPost}
-                            key={currentPost._id}
-                            from="home"
-                        />
+                        <Post post={currentPost} key={currentPost._id} />
                     ))}
+
+                {/* To load more posts */}
+                {this.state.posts[this.state.n] ? (
+                    <button
+                        className="btn btn-link btn-sm"
+                        onClick={() =>
+                            this.setState({
+                                n: this.state.n + 3,
+                                posts: this.state.posts.reverse()
+                            })
+                        }
+                    >
+                        Load More Posts...
+                    </button>
+                ) : (
+                    <p> </p>
+                )}
             </div>
         );
     }
