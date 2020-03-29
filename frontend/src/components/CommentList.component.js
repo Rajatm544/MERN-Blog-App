@@ -18,7 +18,7 @@ class CommentList extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.post !== prevProps.post)
-            this.setState({ comments: this.props.post.comments });
+            this.setState({ comments: this.props.post.comments.reverse() });
     }
 
     handleChange(event) {
@@ -29,10 +29,9 @@ class CommentList extends Component {
     }
 
     handleSubmit(event) {
-        // event.preventDefault();
-
         const { body } = this.state;
         this.setState({ comments: this.state.comments.push(body) });
+        this.setState({ comments: this.state.comments.reverse() });
 
         let updatedPost = this.props.post;
         updatedPost.comments = this.state.comments;
@@ -44,7 +43,6 @@ class CommentList extends Component {
             )
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
-        // window.location = "/posts/show/" + this.props.post._id;
     }
 
     render() {
@@ -58,25 +56,16 @@ class CommentList extends Component {
                 <br />
                 {this.state.comments.length ? (
                     <div>
-                        {/* <p>
-                            {"" +
-                                new Date().getHours() +
-                                ":" +
-                                +new Date().getMinutes() +
-                                "    " +
-                                new Date().getDate() +
-                                "/" +
-                                (new Date().getMonth() + 1) +
-                                "/" +
-                                new Date().getFullYear()}
-                        </p> */}
                         {this.state.comments
-                            .slice(this.state.comments.length - 5)
+                            .slice(
+                                this.state.comments.length - 5,
+                                this.state.comments.length
+                            )
                             .map(currentcomment => (
                                 <Comment
                                     comment={currentcomment}
                                     key={n++}
-                                    img={n}
+                                    img={n + "Rajatdidthis"}
                                 />
                             ))}
                     </div>

@@ -12,7 +12,7 @@ class CreatePosts extends Component {
             title: "",
             body: "",
             author: "",
-            date: Date
+            date: new Date()
         };
 
         this.handleChange = this.handleChange.bind(this);

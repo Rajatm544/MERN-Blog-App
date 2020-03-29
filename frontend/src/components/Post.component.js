@@ -45,14 +45,20 @@ class Post extends Component {
                             }}
                         >
                             <h1>{this.props.post.title}</h1>
-                            <h4>{this.props.post.author}</h4>
+                            <h5>
+                                <span className="author">
+                                    {this.props.post.author}
+                                </span>
+                            </h5>
+
                             <div
                                 dangerouslySetInnerHTML={{
                                     __html:
-                                        this.props.post.body.substring(0, 150) +
+                                        this.props.post.body.substring(0, 200) +
                                         "..."
                                 }}
                             ></div>
+
                             <small>
                                 <time>
                                     <span>Published on </span>
@@ -60,10 +66,7 @@ class Post extends Component {
                                         "/" +
                                         this.props.post.date.substring(5, 7) +
                                         "/" +
-                                        this.props.post.date.substring(0, 4) +
-                                        " at " +
-                                        this.props.post.date.substring(11, 16) +
-                                        " IST"}
+                                        this.props.post.date.substring(0, 4)}
                                 </time>
                             </small>
 
@@ -79,7 +82,16 @@ class Post extends Component {
                         <div className="card-body">
                             <h1>{this.state.post.title}</h1>
                             <h3>{this.state.post.author}</h3>
-                            <time>{this.state.post.date}</time>
+                            <time>
+                                <span>Published on </span>
+                                {this.state.post.date
+                                    ? this.state.post.date.substring(8, 10) +
+                                      "/" +
+                                      this.state.post.date.substring(5, 7) +
+                                      "/" +
+                                      this.state.post.date.substring(0, 4)
+                                    : " "}
+                            </time>
                             <div
                                 dangerouslySetInnerHTML={{
                                     __html: this.state.post.body
