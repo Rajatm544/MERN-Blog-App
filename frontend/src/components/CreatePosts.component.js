@@ -87,6 +87,20 @@ class CreatePosts extends Component {
                             editor={ClassicEditor}
                             data="Start your Blog Post here..."
                             onChange={this.handleEditorChange}
+                            config={{
+                                toolbar: [
+                                    "heading",
+                                    "|",
+                                    "bold",
+                                    "italic",
+                                    "link",
+                                    "bulletedList",
+                                    "numberedList",
+                                    "blockquote",
+                                    "undo",
+                                    "redo"
+                                ]
+                            }}
                         />
                     </div>
                     <br />

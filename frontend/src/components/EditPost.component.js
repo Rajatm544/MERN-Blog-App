@@ -103,6 +103,20 @@ class EditPost extends Component {
                             editor={ClassicEditor}
                             data={this.state.body}
                             onChange={this.handleEditorChange}
+                            config={{
+                                toolbar: [
+                                    "heading",
+                                    "|",
+                                    "bold",
+                                    "italic",
+                                    "link",
+                                    "bulletedList",
+                                    "numberedList",
+                                    "blockquote",
+                                    "undo",
+                                    "redo"
+                                ]
+                            }}
                         />
                     </div>
                     <div className="form-group">
