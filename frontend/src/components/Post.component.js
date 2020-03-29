@@ -46,10 +46,27 @@ class Post extends Component {
                         >
                             <h1>{this.props.post.title}</h1>
                             <h4>{this.props.post.author}</h4>
-                            <p>
-                                {this.props.post.body.substring(0, 200) + "..."}
-                            </p>
-                            <time>{this.props.post.date}</time>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html:
+                                        this.props.post.body.substring(0, 150) +
+                                        "..."
+                                }}
+                            ></div>
+                            <small>
+                                <time>
+                                    <span>Published on </span>
+                                    {this.props.post.date.substring(8, 10) +
+                                        "/" +
+                                        this.props.post.date.substring(5, 7) +
+                                        "/" +
+                                        this.props.post.date.substring(0, 4) +
+                                        " at " +
+                                        this.props.post.date.substring(11, 16) +
+                                        " IST"}
+                                </time>
+                            </small>
+
                             <br />
                         </Link>
                     </div>
@@ -63,7 +80,11 @@ class Post extends Component {
                             <h1>{this.state.post.title}</h1>
                             <h3>{this.state.post.author}</h3>
                             <time>{this.state.post.date}</time>
-                            <p>{this.state.post.body}</p>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: this.state.post.body
+                                }}
+                            ></div>
                             <Link
                                 to={"/posts/edit/" + this.state.post._id}
                                 className="btn btn-primary"

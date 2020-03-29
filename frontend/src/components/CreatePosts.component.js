@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import CKEditor from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import sanitizeHtml from "sanitize-html";
 
 class CreatePosts extends Component {
     constructor(props) {
@@ -9,11 +12,18 @@ class CreatePosts extends Component {
             title: "",
             body: "",
             author: "",
-            date: new Date()
+            date: Date
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEditorChange = this.handleEditorChange.bind(this);
+    }
+
+    handleEditorChange(event, editor) {
+        const data = editor.getData();
+        const sanitizedData = sanitizeHtml(data);
+        this.setState({ body: sanitizedData });
     }
 
     handleChange(event) {
@@ -27,8 +37,7 @@ class CreatePosts extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const date = new Date();
-        this.setState({ date: date });
+        this.setState({ date: new Date() });
 
         const Blog = {
             title: this.state.title,
@@ -37,7 +46,6 @@ class CreatePosts extends Component {
             date: this.state.date
         };
 
-        console.log(Blog);
         axios
             .post("http://localhost:5000/posts/create/", Blog)
             .then(res => console.log(res.data))
@@ -74,16 +82,14 @@ class CreatePosts extends Component {
                             placeholder="John Oliver"
                         />
                     </div>
-                    <div className="form-group">
-                        <textarea
-                            className="form-control"
-                            value={this.state.body}
-                            name="body"
-                            onChange={this.handleChange}
-                            rows="30"
-                            placeholder="Start Blog Post..."
+                    <div>
+                        <CKEditor
+                            editor={ClassicEditor}
+                            data="Start your Blog Post here..."
+                            onChange={this.handleEditorChange}
                         />
                     </div>
+                    <br />
                     <div className="form-group">
                         <input
                             type="submit"

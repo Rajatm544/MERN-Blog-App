@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import CKEditor from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import sanitizeHtml from "sanitize-html";
 
 class EditPost extends Component {
     constructor(props) {
@@ -14,6 +17,7 @@ class EditPost extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEditorChange = this.handleEditorChange.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +32,14 @@ class EditPost extends Component {
                 });
             })
             .catch(err => console.error(err));
+        console.log(this.state.body);
+    }
+
+    handleEditorChange(event, editor) {
+        const data = editor.getData();
+        const sanitizedData = sanitizeHtml(data);
+
+        this.setState({ body: sanitizedData });
     }
 
     handleChange(event) {
@@ -48,7 +60,6 @@ class EditPost extends Component {
             date: this.state.date
         };
 
-        console.log(Blog);
         axios
             .post(
                 "http://localhost:5000/posts/edit/" +
@@ -87,15 +98,11 @@ class EditPost extends Component {
                             required
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Edit Blog Post: </label>
-                        <textarea
-                            className="form-control"
-                            value={this.state.body}
-                            name="body"
-                            onChange={this.handleChange}
-                            rows="30"
-                            outline="none"
+                    <div>
+                        <CKEditor
+                            editor={ClassicEditor}
+                            data={this.state.body}
+                            onChange={this.handleEditorChange}
                         />
                     </div>
                     <div className="form-group">
