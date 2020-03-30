@@ -102,7 +102,7 @@ class Post extends Component {
                                 className="btn btn-primary"
                             >
                                 Edit
-                            </Link>
+                            </Link>{" "}
                             <button
                                 onClick={() =>
                                     this.deletePost(this.state.post._id)

@@ -9,7 +9,8 @@ class CommentList extends Component {
         this.state = {
             body: "",
             imgs: [],
-            comments: []
+            comments: [],
+            noOfComments: 5
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +19,7 @@ class CommentList extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.post !== prevProps.post)
-            this.setState({ comments: this.props.post.comments.reverse() });
+            this.setState({ comments: this.props.post.comments });
     }
 
     handleChange(event) {
@@ -30,8 +31,7 @@ class CommentList extends Component {
 
     handleSubmit(event) {
         const { body } = this.state;
-        this.setState({ comments: this.state.comments.push(body) });
-        this.setState({ comments: this.state.comments.reverse() });
+        this.setState({ comments: this.state.comments.unshift(body) });
 
         let updatedPost = this.props.post;
         updatedPost.comments = this.state.comments;
@@ -54,24 +54,38 @@ class CommentList extends Component {
                 <hr />
                 <h6>Latest Comments</h6>
                 <br />
-                {this.state.comments.length ? (
-                    <div>
-                        {this.state.comments
-                            .slice(
-                                this.state.comments.length - 5,
-                                this.state.comments.length
-                            )
-                            .map(currentcomment => (
-                                <Comment
-                                    comment={currentcomment}
-                                    key={n++}
-                                    img={n + "Rajatdidthis"}
-                                />
-                            ))}
-                    </div>
-                ) : (
-                    <h4>Be the first person to comment on this post</h4>
-                )}
+                <div className="container">
+                    {this.state.comments.length ? (
+                        <div>
+                            {this.state.comments
+                                .slice(0, this.state.noOfComments)
+                                .map(currentcomment => (
+                                    <Comment
+                                        comment={currentcomment}
+                                        key={n++}
+                                        img={n + "Rajatdidthis"}
+                                    />
+                                ))}
+                        </div>
+                    ) : (
+                        <h4>Be the first person to comment on this post</h4>
+                    )}
+                    {this.state.comments[this.state.noOfComments] ? (
+                        <button
+                            className="btn btn-link btn-sm"
+                            onClick={() =>
+                                this.setState(prevState => ({
+                                    noOfComments: prevState.noOfComments + 3
+                                }))
+                            }
+                        >
+                            Load More Comments...
+                        </button>
+                    ) : (
+                        " "
+                    )}
+                </div>
+
                 <div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
@@ -83,6 +97,7 @@ class CommentList extends Component {
                                 value={this.state.body}
                             />
                         </div>
+
                         <div className="form-group">
                             <input
                                 type="submit"
