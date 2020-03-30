@@ -28,7 +28,8 @@ class EditPost extends Component {
                     title: post.data.title,
                     body: post.data.body,
                     author: post.data.author,
-                    date: post.data.date
+                    date: post.data.date,
+                    comments: post.data.comments
                 });
             })
             .catch(err => console.error(err));
@@ -53,21 +54,23 @@ class EditPost extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const Blog = {
+        const editedPost = {
             title: this.state.title,
             author: this.state.author,
             body: this.state.body,
-            date: this.state.date
+            date: this.state.date,
+            comments: this.state.comments
         };
 
         axios
             .post(
                 "http://localhost:5000/posts/edit/" +
                     this.props.match.params.id,
-                Blog
+                editedPost
             )
             .then(res => console.log(res.data))
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
+
         window.location = "/posts/show/" + this.props.match.params.id;
     }
 

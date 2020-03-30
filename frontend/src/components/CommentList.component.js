@@ -54,7 +54,7 @@ class CommentList extends Component {
                 <hr />
                 <h6>Latest Comments</h6>
                 <br />
-                <div className="container">
+                <div>
                     {this.state.comments.length ? (
                         <div>
                             {this.state.comments
@@ -70,12 +70,13 @@ class CommentList extends Component {
                     ) : (
                         <h4>Be the first person to comment on this post</h4>
                     )}
+                    {/* The 'Load more comments' button's implementation */}
                     {this.state.comments[this.state.noOfComments] ? (
                         <button
                             className="btn btn-link btn-sm"
                             onClick={() =>
                                 this.setState(prevState => ({
-                                    noOfComments: prevState.noOfComments + 3
+                                    noOfComments: prevState.noOfComments + 5
                                 }))
                             }
                         >
