@@ -32,11 +32,15 @@ app.use("/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("../frontend/build"));
+    // ... other app.use middleware
+    app.use(express.static(path.join(__dirname, "frontend", "build")));
+
+    // ...
+    // Right before your app.listen(), add this:
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+    });
 }
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../build"));
-// });
 
 //Host app at PORT
 app.listen(PORT, () => console.log("Server is running at PORT " + PORT + "!"));
