@@ -12,7 +12,8 @@ class EditPost extends Component {
             title: "",
             body: "",
             author: "",
-            date: ""
+            date: "",
+            isLoggedIn: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -23,43 +24,42 @@ class EditPost extends Component {
     componentDidMount() {
         axios
             .get("http://localhost:5000/posts/" + this.props.match.params.id)
-            .then(post => {
+            .then((post) => {
                 this.setState({
                     title: post.data.title,
                     body: post.data.body,
                     author: post.data.author,
                     date: post.data.date,
-                    comments: post.data.comments
+                    comments: post.data.comments,
                 });
             })
-            .catch(err => console.error(err));
-        console.log(this.state.body);
+            .catch((err) => console.error(err));
     }
 
     handleEditorChange(event, editor) {
-        const data = editor.getData();
-        const sanitizedData = sanitizeHtml(data);
-
-        this.setState({ body: sanitizedData });
+        this.setState({ body: editor.getData() });
     }
 
     handleChange(event) {
         const { name, value } = event.target;
 
         this.setState({
-            [name]: value
+            [name]: value,
         });
     }
 
     handleSubmit(event) {
         event.preventDefault();
 
+        const sanitizedData = sanitizeHtml(this.state.body);
+        this.setState({ body: sanitizedData });
+
         const editedPost = {
             title: this.state.title,
             author: this.state.author,
             body: this.state.body,
             date: this.state.date,
-            comments: this.state.comments
+            comments: this.state.comments,
         };
 
         axios
@@ -68,21 +68,26 @@ class EditPost extends Component {
                     this.props.match.params.id,
                 editedPost
             )
-            .then(res => console.log(res.data))
-            .catch(err => console.error(err));
-
-        window.location = "/posts/show/" + this.props.match.params.id;
+            .then(
+                // redirect to SHOW page
+                (res) =>
+                    (window.location =
+                        "/posts/show/" + this.props.match.params.id)
+            )
+            .catch((err) => console.error(err));
     }
 
     render() {
         return (
-            <div>
-                <h1>Edit Blog Post</h1>
+            <div className="edit-post">
+                <h1>
+                    Edit Blog Post<span className="full-stop">.</span>
+                </h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label>Title: </label>
+                        <label className="edit-title">Title: </label>
                         <input
-                            className="form-control"
+                            className="form-control edit-title"
                             type="text"
                             name="title"
                             value={this.state.title}
@@ -90,17 +95,7 @@ class EditPost extends Component {
                             required
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Author: </label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="author"
-                            value={this.state.author}
-                            onChange={this.handleChange}
-                            required
-                        />
-                    </div>
+
                     <div>
                         <CKEditor
                             editor={ClassicEditor}
@@ -117,16 +112,17 @@ class EditPost extends Component {
                                     "numberedList",
                                     "blockquote",
                                     "undo",
-                                    "redo"
-                                ]
+                                    "redo",
+                                ],
                             }}
                         />
                     </div>
+                    <br />
                     <div className="form-group">
                         <input
                             type="submit"
                             value="Submit Post"
-                            className="btn btn-primary btn-lg"
+                            className="btn btn-outline-primary btn-lg"
                         />
                     </div>
                 </form>

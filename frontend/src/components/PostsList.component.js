@@ -8,37 +8,42 @@ class PostsList extends Component {
 
         this.state = {
             posts: [],
-            n: 5
+            // Set the no of posts to be rendered to 5
+            noOfPosts: 5,
         };
     }
 
     componentDidMount() {
         axios
             .get("http://localhost:5000/posts/")
-            .then(response => {
-                this.setState({ posts: response.data });
+            .then((response) => {
+                // The order of posts is reversed to display the posts in reverse chronological order
+                this.setState({ posts: response.data.reverse() });
             })
-            .catch(err => console.error(err));
+            .catch((err) => console.error(err));
     }
 
     render() {
         return (
-            <div>
+            <div className="posts-list">
+                <h1 id="title">
+                    Latest Posts<span className="full-stop">.</span>
+                </h1>
+                {/* Display the posts in reverse chronological order */}
                 {this.state.posts
-                    .reverse()
-                    .slice(0, this.state.n)
-                    .map(currentPost => (
+                    .slice(0, this.state.noOfPosts)
+                    .map((currentPost) => (
                         <Post post={currentPost} key={currentPost._id} />
                     ))}
 
                 {/* To load more posts */}
-                {this.state.posts[this.state.n] ? (
+                {this.state.posts[this.state.noOfPosts] ? (
                     <button
-                        className="btn btn-link btn-sm"
+                        className="btn btn-link"
                         onClick={() =>
+                            // When the button is clicked change the state to reflect the change in the no of posts beoing rendered, which triggers a compnent
                             this.setState({
-                                n: this.state.n + 3,
-                                posts: this.state.posts.reverse()
+                                noOfPosts: this.state.noOfPosts + 3,
                             })
                         }
                     >

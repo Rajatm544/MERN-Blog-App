@@ -10,13 +10,14 @@ class CommentList extends Component {
             body: "",
             imgs: [],
             comments: [],
-            noOfComments: 5
+            noOfComments: 5,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
+    // Get post prop
     componentDidUpdate(prevProps) {
         if (this.props.post !== prevProps.post)
             this.setState({ comments: this.props.post.comments });
@@ -25,7 +26,7 @@ class CommentList extends Component {
     handleChange(event) {
         const { value } = event.target;
         this.setState({
-            body: value
+            body: value,
         });
     }
 
@@ -41,42 +42,48 @@ class CommentList extends Component {
                 "http://localhost:5000/posts/edit/" + this.props.post._id,
                 updatedPost
             )
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err));
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err));
     }
 
     render() {
-        let n = 0;
+        let n = 0; //For sending a unique key
         return (
-            <div>
+            <div className="comment-list">
                 <hr />
-                <br />
-                <hr />
-                <h6>Latest Comments</h6>
+                <h5 className="comment-heading">
+                    Latest Comments<span className="full-stop">.</span>
+                </h5>
                 <br />
                 <div>
+                    {/* Render comments in reverse chronological order */}
                     {this.state.comments.length ? (
                         <div>
                             {this.state.comments
                                 .slice(0, this.state.noOfComments)
-                                .map(currentcomment => (
+                                .map((currentcomment) => (
                                     <Comment
                                         comment={currentcomment}
                                         key={n++}
-                                        img={n + "Rajatdidthis"}
+                                        img={n + "dkjaslc"} // img prop is used in generating jdenticon
                                     />
                                 ))}
                         </div>
                     ) : (
-                        <h4>Be the first person to comment on this post</h4>
+                        <h4 id="first-comment">
+                            Be the first person to comment on this post
+                            <span className="full-stop">.</span>
+                        </h4>
                     )}
+
                     {/* The 'Load more comments' button's implementation */}
+                    {/* This sets state, which in turn re-renders the list of comments */}
                     {this.state.comments[this.state.noOfComments] ? (
                         <button
-                            className="btn btn-link btn-sm"
+                            className="btn btn-link"
                             onClick={() =>
-                                this.setState(prevState => ({
-                                    noOfComments: prevState.noOfComments + 5
+                                this.setState((prevState) => ({
+                                    noOfComments: prevState.noOfComments + 5,
                                 }))
                             }
                         >
@@ -87,7 +94,7 @@ class CommentList extends Component {
                     )}
                 </div>
 
-                <div>
+                <div className="comment-form">
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <input
@@ -98,11 +105,10 @@ class CommentList extends Component {
                                 value={this.state.body}
                             />
                         </div>
-
                         <div className="form-group">
                             <input
                                 type="submit"
-                                className="btn btn-success btn-sm"
+                                className="btn btn-outline-success"
                                 value="comment"
                             />
                         </div>

@@ -12,7 +12,8 @@ class CreatePosts extends Component {
             title: "",
             body: "",
             author: "",
-            date: new Date()
+            date: new Date(),
+            isLoggedIn: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -20,17 +21,26 @@ class CreatePosts extends Component {
         this.handleEditorChange = this.handleEditorChange.bind(this);
     }
 
+    // Set author name from logged in user's profile
+    componentDidMount() {
+        if (sessionStorage.getItem("isLoggedIn") === "true") {
+            this.setState({
+                author: sessionStorage.getItem("username"),
+                isLoggedIn: true,
+            });
+        }
+    }
+
     handleEditorChange(event, editor) {
         const data = editor.getData();
-        const sanitizedData = sanitizeHtml(data);
-        this.setState({ body: sanitizedData });
+        this.setState({ body: data });
     }
 
     handleChange(event) {
         const { name, value } = event.target;
 
         this.setState({
-            [name]: value
+            [name]: value,
         });
     }
 
@@ -39,81 +49,97 @@ class CreatePosts extends Component {
 
         this.setState({ date: new Date() });
 
+        // sanitize data before setting state
+        const sanitizedData = sanitizeHtml(this.state.body.trim());
+        this.setState({ body: sanitizedData });
+
         const Blog = {
             title: this.state.title,
             author: this.state.author,
             body: this.state.body,
-            date: this.state.date
+            date: this.state.date,
         };
 
         axios
             .post("http://localhost:5000/posts/create/", Blog)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err));
-        window.location = "/posts";
+            .then((res) => (window.location = "/posts"))
+            .catch((err) => console.log(err));
     }
 
     render() {
-        return (
-            <div>
-                <h1>Create New Blog Post</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Title: </label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="title"
-                            value={this.state.title}
-                            onChange={this.handleChange}
-                            required
-                            placeholder="The Best Title"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Author: </label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="author"
-                            value={this.state.author}
-                            onChange={this.handleChange}
-                            required
-                            placeholder="John Oliver"
-                        />
-                    </div>
-                    <div>
-                        <CKEditor
-                            editor={ClassicEditor}
-                            data="Start your Blog Post here..."
-                            onChange={this.handleEditorChange}
-                            config={{
-                                toolbar: [
-                                    "heading",
-                                    "|",
-                                    "bold",
-                                    "italic",
-                                    "link",
-                                    "bulletedList",
-                                    "numberedList",
-                                    "blockquote",
-                                    "undo",
-                                    "redo"
-                                ]
-                            }}
-                        />
-                    </div>
-                    <br />
-                    <div className="form-group">
-                        <input
-                            type="submit"
-                            value="Create Post"
-                            className="btn btn-success btn-lg"
-                        />
-                    </div>
-                </form>
-            </div>
-        );
+        if (this.state.isLoggedIn) {
+            return (
+                <div className="new-post">
+                    <h1>
+                        Create New Blog Post<span className="full-stop">.</span>
+                    </h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label className="new-title">Title: </label>
+                            <input
+                                className="form-control new-title"
+                                type="text"
+                                name="title"
+                                value={this.state.title}
+                                onChange={this.handleChange}
+                                required
+                                placeholder="The Best Title"
+                            />
+                        </div>
+                        <div>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                onChange={this.handleEditorChange}
+                                config={{
+                                    toolbar: [
+                                        "heading",
+                                        "|",
+                                        "bold",
+                                        "italic",
+                                        "link",
+                                        "bulletedList",
+                                        "numberedList",
+                                        "blockquote",
+                                        "undo",
+                                        "redo",
+                                    ],
+                                    placeholder:
+                                        "Start typing your blog post here...",
+                                }}
+                            />
+                        </div>
+                        <br />
+                        <div className="form-group">
+                            <input
+                                type="submit"
+                                value="Create Post"
+                                className="btn btn-outline-primary btn-lg"
+                            />
+                        </div>
+                    </form>
+                </div>
+            );
+        } else {
+            return (
+                <div
+                    className="alert alert-warning"
+                    role="alert"
+                    onClick={() => (window.location = "/login")}
+                >
+                    You need to login to create a new post!
+                    <button
+                        type="button"
+                        className="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true" className="alert-close">
+                            &times;{" "}
+                        </span>
+                    </button>
+                </div>
+            );
+        }
     }
 }
 
