@@ -15,7 +15,6 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "mongoose": "^5.9.5",
-        "passport": "^0.4.1",
         "react-confirm-alert": "^2.6.1",
         "react-google-login": "^5.1.2",
         "react-router-dom": "^5.1.2",
