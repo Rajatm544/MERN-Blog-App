@@ -16,7 +16,7 @@ const uri = process.env.MONGO_URI;
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
 });
 const connection = mongoose.connection;
 connection.once("open", () =>
@@ -25,7 +25,16 @@ connection.once("open", () =>
 
 //config routes
 const postsRouter = require("./routes/posts");
+const authRouter = require("./routes/auth");
+
+app.use("/auth", authRouter);
 app.use("/posts", postsRouter);
+
+//Load the npm build package of the frontend CRA
+// app.use(express.static(path.join(__dirname, "../build")));
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../build"));
+// });
 
 //Host app at PORT
 app.listen(PORT, () => console.log("Server is running at PORT " + PORT + "!"));
