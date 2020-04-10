@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === "production") {
     // ...
     // Right before your app.listen(), add this:
     app.get("*", (req, res) => {
-        res.sendFile(path.join("frontend", "build", "index.html"));
+        res.sendFile(path.join(".", "frontend", "build", "index.html"));
     });
 }
 
