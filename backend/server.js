@@ -32,15 +32,10 @@ app.use("/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
 if (process.env.NODE_ENV === "production") {
-    // ... other app.use middleware
     app.use(express.static("../frontend/build"));
 
-    // ...
-    // Right before your app.listen(), add this:
     app.get("*", (req, res) => {
-        res.sendFile(
-            path.join(__dirname, "..", "frontend", "build", "index.html")
-        );
+        res.sendFile("../frontend/build/index.html", { root: __dirname });
     });
 }
 
