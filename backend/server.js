@@ -31,7 +31,9 @@ app.use("/auth", authRouter);
 app.use("/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
-// app.use(express.static(path.join(__dirname, "../build")));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("../frontend/build"));
+}
 // app.get("*", (req, res) => {
 //     res.sendFile(path.join(__dirname, "../build"));
 // });
