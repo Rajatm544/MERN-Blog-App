@@ -24,18 +24,18 @@ connection.once("open", () =>
 );
 
 //config routes
-const postsRouter = require("./routes/posts");
-const authRouter = require("./routes/auth");
+const postsRouter = require("./backend/routes/posts");
+const authRouter = require("./backend/routes/auth");
 
 app.use("/auth", authRouter);
 app.use("/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("../frontend/build"));
+    app.use(express.static("frontend/build"));
 
     app.get("*", (req, res) => {
-        res.sendFile("../frontend/build/index.html", { root: __dirname });
+        res.sendFile("frontend/build/index.html", { root: __dirname });
     });
 }
 
