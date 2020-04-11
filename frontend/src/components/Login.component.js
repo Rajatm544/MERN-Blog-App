@@ -76,6 +76,7 @@ class Login extends React.Component {
                     if (res.data.socialId) {
                         sessionStorage.setItem("isLoggedIn", "true");
                         sessionStorage.setItem("username", res.data.username);
+                        count++;
 
                         window.setTimeout(() => {
                             sessionStorage.removeItem("isLoggedIn");
