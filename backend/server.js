@@ -30,7 +30,7 @@ const postsRouter = require("./routes/posts");
 const authRouter = require("./routes/auth");
 
 app.use("/auth", authRouter);
-app.use("/posts", postsRouter);
+app.use("/server/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
 if (process.env.NODE_ENV === "production") {

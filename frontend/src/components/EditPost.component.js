@@ -23,7 +23,10 @@ class EditPost extends Component {
 
     componentDidMount() {
         axios
-            .get("http://localhost:5000/posts/" + this.props.match.params.id)
+            .get(
+                "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
+                    this.props.match.params.id
+            )
             .then((post) => {
                 this.setState({
                     title: post.data.title,
@@ -64,7 +67,7 @@ class EditPost extends Component {
 
         axios
             .post(
-                "https://mern-blog-it.herokuapp.com/posts/edit/" +
+                "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
                     this.props.match.params.id,
                 editedPost
             )

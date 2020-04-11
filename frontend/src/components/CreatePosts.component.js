@@ -61,7 +61,10 @@ class CreatePosts extends Component {
         };
 
         axios
-            .post("https://mern-blog-it.herokuapp.com/posts/create/", Blog)
+            .post(
+                "https://mern-blog-it.herokuapp.com/server/posts/create/",
+                Blog
+            )
             .then((res) => (window.location = "/posts"))
             .catch((err) => console.log(err));
     }

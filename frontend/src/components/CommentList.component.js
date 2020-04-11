@@ -45,7 +45,7 @@ class CommentList extends Component {
 
         axios
             .post(
-                "https://mern-blog-it.herokuapp.com/posts/edit/" +
+                "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
                     this.props.post._id,
                 updatedPost
             )

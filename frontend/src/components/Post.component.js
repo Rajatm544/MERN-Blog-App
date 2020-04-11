@@ -22,7 +22,7 @@ class Post extends Component {
         if (!this.props.post) {
             axios
                 .get(
-                    "https://mern-blog-it.herokuapp.com/posts/" +
+                    "https://mern-blog-it.herokuapp.com/server/posts/" +
                         this.props.match.params.id
                 )
                 .then((response) => {
@@ -66,7 +66,7 @@ class Post extends Component {
 
     deletePost(id) {
         axios
-            .delete("https://mern-blog-it.herokuapp.com/posts/" + id)
+            .delete("https://mern-blog-it.herokuapp.com/server/posts/" + id)
             .then((res) => console.log(res.data))
             .catch((err) => console.error(err));
 
