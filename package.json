@@ -1,7 +1,7 @@
 {
     "name": "mern-blog",
     "version": "1.0.0",
-    "description": "",
+    "description": "A MERN Stack Blog app",
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
