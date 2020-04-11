@@ -24,7 +24,7 @@ class EditPost extends Component {
     componentDidMount() {
         axios
             .get(
-                "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
+                "https://mern-blog-it.herokuapp.com/server/posts/" +
                     this.props.match.params.id
             )
             .then((post) => {
