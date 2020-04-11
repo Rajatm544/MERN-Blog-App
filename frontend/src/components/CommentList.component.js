@@ -17,10 +17,10 @@ class CommentList extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount() {
-        console.log(this.props.post.comment);
-        this.setState({ comments: this.props.post.comments });
-    }
+    // componentDidMount() {
+    //     console.log(this.props.post.comment);
+    //     this.setState({ comments: this.props.post.comments });
+    // }
 
     // Get post prop
     componentDidUpdate(prevProps) {
