@@ -95,7 +95,7 @@ class Login extends React.Component {
     // Google login failure callback
     failureGoogleLogin(response) {
         console.error(response);
-        // window.location = "/login";
+        window.location = "/login";
     }
 
     render() {
