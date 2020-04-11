@@ -18,6 +18,7 @@ class CommentList extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.post.comment);
         this.setState({ comments: this.props.post.comments });
     }
 
