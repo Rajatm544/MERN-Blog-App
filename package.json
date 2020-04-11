@@ -5,8 +5,11 @@
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "cd frontend && npm run build",
+        "install-client": "cd frontend && npm install",
+        "heroku-postbuild": "npm run install-client && npm run build",
         "start": "node backend/server.js",
-        "heroku post-build": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+        "frontend": "cd frontend && npm start"
     },
     "author": "Rajat M",
     "license": "ISC",
