@@ -66,7 +66,7 @@ class Post extends Component {
 
     deletePost(id) {
         axios
-            .delete("http://localhost:5000/posts/" + id)
+            .delete("https://mern-blog-it.herokuapp.com/posts/" + id)
             .then((res) => console.log(res.data))
             .catch((err) => console.error(err));
 
