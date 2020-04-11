@@ -17,6 +17,10 @@ class CommentList extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount() {
+        this.setState({ comments: this.props.post.comments });
+    }
+
     // Get post prop
     componentDidUpdate(prevProps) {
         if (this.props.post !== prevProps.post)
