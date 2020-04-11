@@ -71,8 +71,9 @@ class Login extends React.Component {
             axios
                 .post("https://mern-blog-it.herokuapp.com/auth/login", user)
                 .then((res) => {
+                    let count = 0;
+
                     if (res.data.socialId) {
-                        let count = 0;
                         sessionStorage.setItem("isLoggedIn", "true");
                         sessionStorage.setItem("username", res.data.username);
 
