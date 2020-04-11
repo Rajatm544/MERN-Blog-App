@@ -64,7 +64,7 @@ class EditPost extends Component {
 
         axios
             .post(
-                "http://localhost:5000/posts/edit/" +
+                "https://mern-blog-it.herokuapp.com/posts/edit/" +
                     this.props.match.params.id,
                 editedPost
             )

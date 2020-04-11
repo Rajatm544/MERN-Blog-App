@@ -25,7 +25,7 @@ class Login extends React.Component {
 
         // Make an API call to either findOrCreate the user
         axios
-            .post("http://localhost:5000/auth/login", user)
+            .post("https://mern-blog-it.herokuapp.com/auth/login", user)
             .then((res) => {
                 // Reload the page once count is 1 to reload the navbar component and display "Logout" as an option instead of "Login"
                 let count = 0;
@@ -69,7 +69,7 @@ class Login extends React.Component {
             };
 
             axios
-                .post("http://localhost:5000/auth/login", user)
+                .post("https://mern-blog-it.herokuapp.com/auth/login", user)
                 .then((res) => {
                     if (res.data.socialId) {
                         let count = 0;
@@ -127,7 +127,7 @@ class Login extends React.Component {
                             consumerSecret={
                                 process.env.REACT_APP_TWITTER_CONSUMER_SECRET
                             }
-                            callbackUrl="http://localhost:3000/login"
+                            callbackUrl="https://mern-blog-it.herokuapp.com/login"
                             buttonTheme="light"
                         />
                     </div>

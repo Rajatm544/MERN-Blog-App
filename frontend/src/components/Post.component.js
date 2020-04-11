@@ -22,7 +22,8 @@ class Post extends Component {
         if (!this.props.post) {
             axios
                 .get(
-                    "http://localhost:5000/posts/" + this.props.match.params.id
+                    "https://mern-blog-it.herokuapp.com/" +
+                        this.props.match.params.id
                 )
                 .then((response) => {
                     this.setState({ post: response.data });
