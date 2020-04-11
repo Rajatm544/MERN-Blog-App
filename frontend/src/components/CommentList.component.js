@@ -17,14 +17,8 @@ class CommentList extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    // componentDidMount() {
-    //     console.log(this.props.post.comment);
-    //     this.setState({ comments: this.props.post.comments });
-    // }
-
-    // Get post prop
+    //The post prop can take a while to arrive therefore cannot use componentDidMount
     componentDidUpdate(prevProps) {
-        console.log("update:" + this.props);
         if (this.props.post !== prevProps.post)
             this.setState({ comments: this.props.post.comments });
     }
@@ -37,6 +31,8 @@ class CommentList extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
+
         const { body } = this.state;
         this.setState({ comments: this.state.comments.unshift(body) });
 
@@ -49,8 +45,7 @@ class CommentList extends Component {
                     this.props.post._id,
                 updatedPost
             )
-
-            .then((res) => console.log(res.data))
+            .then((res) => window.location.reload())
             .catch((err) => console.log(err));
     }
 

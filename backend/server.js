@@ -30,6 +30,7 @@ const postsRouter = require("./routes/posts");
 const authRouter = require("./routes/auth");
 
 app.use("/auth", authRouter);
+// To differentiate backend posts route, I am adding server/
 app.use("/server/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
@@ -37,6 +38,7 @@ if (process.env.NODE_ENV === "production") {
     // set a static folder
     app.use(express.static("frontend/build"));
 
+    // Provide a wildcard as a fallback for all routes
     app.get("*", (req, res) => {
         res.sendFile(
             path.resolve(__dirname, "../frontend", "build", "index.html")

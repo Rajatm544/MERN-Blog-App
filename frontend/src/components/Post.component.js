@@ -26,7 +26,6 @@ class Post extends Component {
                         this.props.match.params.id
                 )
                 .then((response) => {
-                    console.log(response.data);
                     this.setState({ post: response.data });
                 })
                 .catch((err) => console.error(err));
@@ -59,7 +58,10 @@ class Post extends Component {
                 },
                 {
                     label: "NO  ",
-                    onClick: () => console.log("NO"),
+                    onClick: () =>
+                        console.log(
+                            "NO! I don't want to delete this magnificant piece of art!"
+                        ),
                 },
             ],
         });
