@@ -8,8 +8,7 @@
         "build": "cd frontend && npm run build",
         "install-client": "cd frontend && npm install",
         "heroku-postbuild": "npm run install-client && npm run build",
-        "start": "node server.js",
-        "frontend": "cd frontend && npm start"
+        "start": "node server.js"
     },
     "author": "Rajat M",
     "license": "ISC",
