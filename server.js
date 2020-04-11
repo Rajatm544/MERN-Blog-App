@@ -26,8 +26,8 @@ connection.once("open", () =>
 );
 
 //config routes
-const postsRouter = require("./backend/routes/posts");
-const authRouter = require("./backend/routes/auth");
+const postsRouter = require("./routes/posts");
+const authRouter = require("./routes/auth");
 
 app.use("/auth", authRouter);
 app.use("/posts", postsRouter);
