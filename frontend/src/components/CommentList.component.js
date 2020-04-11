@@ -24,6 +24,7 @@ class CommentList extends Component {
 
     // Get post prop
     componentDidUpdate(prevProps) {
+        console.log("update:" + this.props);
         if (this.props.post !== prevProps.post)
             this.setState({ comments: this.props.post.comments });
     }

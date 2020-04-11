@@ -22,7 +22,7 @@ class Post extends Component {
         if (!this.props.post) {
             axios
                 .get(
-                    "https://mern-blog-it.herokuapp.com/" +
+                    "https://mern-blog-it.herokuapp.com/posts" +
                         this.props.match.params.id
                 )
                 .then((response) => {
