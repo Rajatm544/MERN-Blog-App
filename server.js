@@ -4,13 +4,6 @@ const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
 
-const proxy = require("http-proxy-middleware");
-
-module.exports = function (app) {
-    // add other server routes to path array
-    app.use(proxy(["/api"], { target: "http://localhost:5000" }));
-};
-
 //config Express App
 const app = express();
 app.use(express.json());
