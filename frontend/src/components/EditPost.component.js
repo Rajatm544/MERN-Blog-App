@@ -37,6 +37,10 @@ class EditPost extends Component {
                 });
             })
             .catch((err) => console.error(err));
+
+        if (sessionStorage.getItem("isLoggedIn") === "true") {
+            this.setState({ isLoggedIn: true });
+        }
     }
 
     handleEditorChange(event, editor) {
@@ -81,56 +85,78 @@ class EditPost extends Component {
     }
 
     render() {
-        return (
-            <div className="edit-post">
-                <h1>
-                    Edit Blog Post<span className="full-stop">.</span>
-                </h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label className="edit-title">Title: </label>
-                        <input
-                            className="form-control edit-title"
-                            type="text"
-                            name="title"
-                            value={this.state.title}
-                            onChange={this.handleChange}
-                            required
-                        />
-                    </div>
+        if (this.state.isLoggedIn) {
+            return (
+                <div className="edit-post">
+                    <h1>
+                        Edit Blog Post<span className="full-stop">.</span>
+                    </h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label className="edit-title">Title: </label>
+                            <input
+                                className="form-control edit-title"
+                                type="text"
+                                name="title"
+                                value={this.state.title}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </div>
 
-                    <div>
-                        <CKEditor
-                            editor={ClassicEditor}
-                            data={this.state.body}
-                            onChange={this.handleEditorChange}
-                            config={{
-                                toolbar: [
-                                    "heading",
-                                    "|",
-                                    "bold",
-                                    "italic",
-                                    "link",
-                                    "bulletedList",
-                                    "numberedList",
-                                    "blockquote",
-                                    "undo",
-                                    "redo",
-                                ],
-                            }}
-                        />
-                    </div>
-                    <br />
-                    <div className="form-group">
-                        <input
-                            type="submit"
-                            value="Submit Post"
-                            className="btn btn-outline-primary btn-lg"
-                        />
-                    </div>
-                </form>
-            </div>
-        );
+                        <div>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data={this.state.body}
+                                onChange={this.handleEditorChange}
+                                config={{
+                                    toolbar: [
+                                        "heading",
+                                        "|",
+                                        "bold",
+                                        "italic",
+                                        "link",
+                                        "bulletedList",
+                                        "numberedList",
+                                        "blockquote",
+                                        "undo",
+                                        "redo",
+                                    ],
+                                }}
+                            />
+                        </div>
+                        <br />
+                        <div className="form-group">
+                            <input
+                                type="submit"
+                                value="Submit Post"
+                                className="btn btn-outline-primary btn-lg"
+                            />
+                        </div>
+                    </form>
+                </div>
+            );
+        } else {
+            return (
+                <div
+                    className="alert alert-warning"
+                    role="alert"
+                    onClick={() => (window.location = "/login")}
+                >
+                    You need to login to edit your post!
+                    <button
+                        type="button"
+                        className="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true" className="alert-close">
+                            &times;{" "}
+                        </span>
+                    </button>
+                </div>
+            );
+        }
     }
 }
 
