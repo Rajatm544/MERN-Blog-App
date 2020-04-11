@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 //config Express App
@@ -33,10 +34,13 @@ app.use("/posts", postsRouter);
 
 //Load the npm build package of the frontend CRA
 if (process.env.NODE_ENV === "production") {
+    // set a static folder
     app.use(express.static("frontend/build"));
 
     app.get("*", (req, res) => {
-        res.sendFile("frontend/build/index.html", { root: __dirname });
+        res.sendFile(
+            path.resolve(__dirname, "frontend", "build", "index.html")
+        );
     });
 }
 
