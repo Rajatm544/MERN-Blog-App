@@ -137,6 +137,7 @@ class Post extends Component {
                                       this.state.post.date.substring(0, 4)
                                     : " "}
                             </time>
+                            <br />
                             <div
                                 className="post-body"
                                 dangerouslySetInnerHTML={{
