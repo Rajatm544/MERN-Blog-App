@@ -64,12 +64,28 @@ class Navbar extends Component {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/posts" className="nav-link">
+                            <Link
+                                to="/posts"
+                                className="nav-link"
+                                onClick={() =>
+                                    document
+                                        .querySelector("#navbarTogglerDemo01")
+                                        .classList.remove("show")
+                                }
+                            >
                                 Posts
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/posts/create" className="nav-link">
+                            <Link
+                                to="/posts/create"
+                                className="nav-link"
+                                onClick={() =>
+                                    document
+                                        .querySelector("#navbarTogglerDemo01")
+                                        .classList.remove("show")
+                                }
+                            >
                                 New Post
                             </Link>
                         </li>
@@ -77,7 +93,17 @@ class Navbar extends Component {
                         {/* Display "Login" or "Logout" link based on the state of the navbar component */}
                         {!this.state.isLoggedIn ? (
                             <li className="navbar-item">
-                                <Link to="/login" className="nav-link">
+                                <Link
+                                    to="/login"
+                                    className="nav-link"
+                                    onClick={() =>
+                                        document
+                                            .querySelector(
+                                                "#navbarTogglerDemo01"
+                                            )
+                                            .classList.remove("show")
+                                    }
+                                >
                                     Login
                                 </Link>
                             </li>
