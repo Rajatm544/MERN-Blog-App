@@ -51,7 +51,15 @@ class Navbar extends Component {
                 >
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="navbar-item">
-                            <Link to="/about" className="nav-link">
+                            <Link
+                                to="/about"
+                                className="nav-link"
+                                onClick={() =>
+                                    document
+                                        .querySelector("#navbarTogglerDemo01")
+                                        .classList.remove("show")
+                                }
+                            >
                                 About
                             </Link>
                         </li>

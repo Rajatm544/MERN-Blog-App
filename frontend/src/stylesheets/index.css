@@ -91,10 +91,6 @@ body {
         box-shadow: 7px 7px 5px -2px rgba(52, 162, 179, 1);
         z-index: 2;
     }
-
-    .navbar-collapse.show {
-        border: 1px solid #114c70;
-    }
 }
 
 /* Login component */
