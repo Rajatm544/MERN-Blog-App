@@ -297,6 +297,7 @@ body {
 .post .card-body .post-body {
     font-size: larger;
     text-shadow: none;
+    padding-top: 0.5em;
 }
 
 .post .btn-outline-primary {
