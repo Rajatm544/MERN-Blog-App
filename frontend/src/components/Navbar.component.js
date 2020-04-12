@@ -54,6 +54,7 @@ class Navbar extends Component {
                             <Link
                                 to="/about"
                                 className="nav-link"
+                                // Collapse the navbar once an item is clicked
                                 onClick={() =>
                                     document
                                         .querySelector("#navbarTogglerDemo01")
@@ -67,6 +68,7 @@ class Navbar extends Component {
                             <Link
                                 to="/posts"
                                 className="nav-link"
+                                // Collapse the navbar once an item is clicked
                                 onClick={() =>
                                     document
                                         .querySelector("#navbarTogglerDemo01")
@@ -80,6 +82,7 @@ class Navbar extends Component {
                             <Link
                                 to="/posts/create"
                                 className="nav-link"
+                                // Collapse the navbar once an item is clicked
                                 onClick={() =>
                                     document
                                         .querySelector("#navbarTogglerDemo01")
@@ -96,6 +99,7 @@ class Navbar extends Component {
                                 <Link
                                     to="/login"
                                     className="nav-link"
+                                    // Collapse the navbar once an item is clicked
                                     onClick={() =>
                                         document
                                             .querySelector(
