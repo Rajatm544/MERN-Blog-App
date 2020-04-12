@@ -6,7 +6,7 @@ const Landing = () => (
         <h1 className="display-4">
             Just Blog It<span className="full-stop">.</span>
         </h1>
-        <p className="lead">
+        <p>
             This is a blogging platform for all your blogging needs!
             <br />
             Want to read some awesome blogs? We've got you covered!
