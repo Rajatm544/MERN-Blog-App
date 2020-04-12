@@ -7,4 +7,3 @@
 -   Each comment has a unique jdenticon icon attached to it.
 -   In order to write a new blog post, the user has to login using one of the social media login options provided. The react-social-login package is being used to provide the user authentication and authorization.
 -   It has been deployed using Heroku and the link for the deployed app is [here](https://mern-blog-it.herokuapp.com/).
--   The Github repo for the code of the project can be found [here](https://github.com/Rajatm544/MERN-Blog-App).
