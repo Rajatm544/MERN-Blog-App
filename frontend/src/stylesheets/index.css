@@ -90,6 +90,7 @@ body {
         -moz-box-shadow: 7px 7px 5px -2px rgba(52, 162, 179, 1);
         box-shadow: 7px 7px 5px -2px rgba(52, 162, 179, 1);
         z-index: 2;
+        border: 1px solid #114c70;
     }
 }
 
