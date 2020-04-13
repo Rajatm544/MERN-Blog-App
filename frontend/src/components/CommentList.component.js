@@ -24,6 +24,7 @@ class CommentList extends Component {
     }
 
     handleChange(event) {
+        // Store comment body in  the state
         const { value } = event.target;
         this.setState({
             body: value,
@@ -33,20 +34,28 @@ class CommentList extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const { body } = this.state;
-        this.setState({ comments: this.state.comments.unshift(body) });
+        // Remove trailing white spaces
+        this.state.body.trim();
 
-        let updatedPost = this.props.post;
-        updatedPost.comments = this.state.comments;
+        // Submit comment only if it doesn't have only whitespaces
+        if (this.state.body) {
+            const { body } = this.state;
+            this.setState({ comments: this.state.comments.unshift(body) });
 
-        axios
-            .post(
-                "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
-                    this.props.post._id,
-                updatedPost
-            )
-            .then((res) => window.location.reload())
-            .catch((err) => console.log(err));
+            let updatedPost = this.props.post;
+            updatedPost.comments = this.state.comments;
+
+            axios
+                .post(
+                    "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
+                        this.props.post._id,
+                    updatedPost
+                )
+                .then((res) => window.location.reload())
+                .catch((err) => console.log(err));
+        } else {
+            alert("Cannot submit epmty comment.");
+        }
     }
 
     render() {
