@@ -52,7 +52,7 @@ class CommentList extends Component {
                 .then((res) => window.location.reload())
                 .catch((err) => console.log(err));
         } else {
-            alert("Cannot submit epmty comment.");
+            alert("Cannot submit empty comment.");
         }
     }
 
