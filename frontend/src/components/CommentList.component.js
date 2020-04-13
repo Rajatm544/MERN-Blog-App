@@ -35,7 +35,9 @@ class CommentList extends Component {
         event.preventDefault();
 
         // Remove trailing white spaces
-        this.state.body.trim();
+        this.setState((prevState) => {
+            return { body: prevState.body.trim() };
+        });
 
         // Submit comment only if it doesn't have only whitespaces
         if (this.state.body) {
