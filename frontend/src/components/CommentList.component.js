@@ -34,14 +34,16 @@ class CommentList extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        // Remove trailing white spaces
-        this.setState((prevState) => {
-            return { body: prevState.body.trim() };
-        });
+        // // Remove trailing white spaces
+        // this.setState((prevState) => {
+        //     return { body: prevState.body.trim() };
+        // });
 
         // Submit comment only if it doesn't have only whitespaces
-        if (this.state.body) {
+        if (this.state.body.trim()) {
+            console.log("Yep");
             const { body } = this.state;
+            // Store new comments at the beginning of the array, to display in reverse chronological order
             this.setState({ comments: this.state.comments.unshift(body) });
 
             let updatedPost = this.props.post;
