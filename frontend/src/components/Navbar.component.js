@@ -5,6 +5,8 @@ class Navbar extends Component {
     constructor() {
         super();
         this.state = { isLoggedIn: false };
+
+        this.handleNavbarCollapse = this.handleNavbarCollapse.bind(this);
     }
 
     // Update navbar component when user logs in, to display "Login" or "Logout"
@@ -23,6 +25,10 @@ class Navbar extends Component {
                 }
             });
         }
+    }
+
+    handleNavbarCollapse() {
+        document.querySelector("#navbarTogglerDemo01").classList.remove("show");
     }
 
     render() {
@@ -55,11 +61,7 @@ class Navbar extends Component {
                                 to="/about"
                                 className="nav-link"
                                 // Collapse the navbar once an item is clicked
-                                onClick={() =>
-                                    document
-                                        .querySelector("#navbarTogglerDemo01")
-                                        .classList.remove("show")
-                                }
+                                onClick={this.handleNavbarCollapse}
                             >
                                 About
                             </Link>
@@ -69,11 +71,7 @@ class Navbar extends Component {
                                 to="/posts"
                                 className="nav-link"
                                 // Collapse the navbar once an item is clicked
-                                onClick={() =>
-                                    document
-                                        .querySelector("#navbarTogglerDemo01")
-                                        .classList.remove("show")
-                                }
+                                onClick={this.handleNavbarCollapse}
                             >
                                 Posts
                             </Link>
@@ -83,11 +81,7 @@ class Navbar extends Component {
                                 to="/posts/create"
                                 className="nav-link"
                                 // Collapse the navbar once an item is clicked
-                                onClick={() =>
-                                    document
-                                        .querySelector("#navbarTogglerDemo01")
-                                        .classList.remove("show")
-                                }
+                                onClick={this.handleNavbarCollapse}
                             >
                                 New Post
                             </Link>
@@ -100,13 +94,7 @@ class Navbar extends Component {
                                     to="/login"
                                     className="nav-link"
                                     // Collapse the navbar once an item is clicked
-                                    onClick={() =>
-                                        document
-                                            .querySelector(
-                                                "#navbarTogglerDemo01"
-                                            )
-                                            .classList.remove("show")
-                                    }
+                                    onClick={this.handleNavbarCollapse}
                                 >
                                     Login
                                 </Link>
