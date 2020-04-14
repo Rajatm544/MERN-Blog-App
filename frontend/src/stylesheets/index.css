@@ -142,6 +142,10 @@ body {
     z-index: 1;
 }
 
+.jumbotron main {
+    font-size: large;
+}
+
 .jumbotron .btn-outline-primary {
     background: white;
     color: #07a0ff;
