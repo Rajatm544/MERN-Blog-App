@@ -14,7 +14,7 @@ const About = () => {
                 </p>
                 <p>
                     In order to write your very own Blog post, you can
-                    conviniently login using one of your social accounts, and
+                    conveniently login using one of your social accounts, and
                     start penning your thoughts!
                 </p>
                 <p>
