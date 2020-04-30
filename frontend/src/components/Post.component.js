@@ -150,9 +150,10 @@ class Post extends Component {
                                       this.state.post.date.substring(0, 4)
                                     : " "}
                             </time>
-                            <div className="read-time">
+                            {" ~"}
+                            <span className="read-time">
                                 {this.state.readingTime} min read
-                            </div>
+                            </span>
                             <div
                                 className="post-body"
                                 dangerouslySetInnerHTML={{
