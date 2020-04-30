@@ -34,7 +34,7 @@ class Post extends Component {
                         const noOfWords = this.state.post.body.split(" ")
                             .length;
                         if (noOfWords) {
-                            const readingTime = Math.ceil(
+                            const readingTime = Math.floor(
                                 noOfWords / wordsPerMinute
                             );
                             this.setState({ readingTime: readingTime });
