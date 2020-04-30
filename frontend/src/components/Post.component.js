@@ -11,7 +11,7 @@ class Post extends Component {
     constructor(props) {
         // When all the Posts has to to be showed, the "post" prop is recieved from the Postslist compnent
         super(props);
-        this.state = { post: {}, isLoggedIn: false };
+        this.state = { post: {}, isLoggedIn: false, readingTime: 0 };
 
         this.deletePost = this.deletePost.bind(this);
         this.confirmDelete = this.confirmDelete.bind(this);
@@ -27,6 +27,17 @@ class Post extends Component {
                 )
                 .then((response) => {
                     this.setState({ post: response.data });
+
+                    // Set the reading time for the post
+                    if (this.state.post) {
+                        const wordsPerMinute = 200; //average rate;
+                        const noOfWords = this.state.post.body.split(" ")
+                            .length;
+                        if (noOfWords) {
+                            const readingTime = noOfWords / wordsPerMinute;
+                            this.setState({ readingTime: readingTime });
+                        }
+                    }
                 })
                 .catch((err) => console.error(err));
         }
@@ -137,6 +148,7 @@ class Post extends Component {
                                       this.state.post.date.substring(0, 4)
                                     : " "}
                             </time>
+                            <span>{this.state.readingTime} min read</span>
                             <div
                                 className="post-body"
                                 dangerouslySetInnerHTML={{
