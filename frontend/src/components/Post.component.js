@@ -34,7 +34,9 @@ class Post extends Component {
                         const noOfWords = this.state.post.body.split(" ")
                             .length;
                         if (noOfWords) {
-                            const readingTime = noOfWords / wordsPerMinute;
+                            const readingTime = Math.ceil(
+                                noOfWords / wordsPerMinute
+                            );
                             this.setState({ readingTime: readingTime });
                         }
                     }
@@ -148,7 +150,9 @@ class Post extends Component {
                                       this.state.post.date.substring(0, 4)
                                     : " "}
                             </time>
-                            <span>{this.state.readingTime} min read</span>
+                            <div className="read-time">
+                                {this.state.readingTime} min read
+                            </div>
                             <div
                                 className="post-body"
                                 dangerouslySetInnerHTML={{

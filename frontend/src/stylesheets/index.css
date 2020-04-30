@@ -290,6 +290,12 @@ body {
     outline: none;
 }
 
+.card-body .read-time {
+    color: white;
+    opacity: 0.9;
+    font-size: smaller;
+}
+
 .post .card-body {
     font-family: "Noto Sans", sans-serif;
     background: #114c70;
