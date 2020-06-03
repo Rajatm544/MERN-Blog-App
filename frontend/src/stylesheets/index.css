@@ -14,7 +14,10 @@ body {
 
 /* When Page is offline */
 .offline {
-    background-color: rgba(0, 81, 186, 1);
+    color: rgba(0, 81, 186, 1);
+    font-size: larger;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 /* All full stops in the app */
