@@ -6,6 +6,7 @@ import GoogleLogin from "react-google-login";
 import TwitterLogin from "react-twitter-login";
 
 dotenv.config();
+const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
 
 class Login extends React.Component {
     //After logging in, redirect to previous page
@@ -25,7 +26,7 @@ class Login extends React.Component {
 
         // Make an API call to either findOrCreate the user
         axios
-            .post("https://mern-blog-it.herokuapp.com/auth/login", user)
+            .post(`${baseURL}/auth/login`, user)
             .then((res) => {
                 // Reload the page once count is 1 to reload the navbar component and display "Logout" as an option instead of "Login"
                 let count = 0;
@@ -69,7 +70,7 @@ class Login extends React.Component {
             };
 
             axios
-                .post("https://mern-blog-it.herokuapp.com/auth/login", user)
+                .post(`${baseURL}/auth/login`, user)
                 .then((res) => {
                     let count = 0;
 

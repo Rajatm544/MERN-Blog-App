@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Post from "./Post.component";
 
+const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+
 class PostsList extends Component {
     constructor() {
         super();
@@ -15,7 +17,7 @@ class PostsList extends Component {
 
     componentDidMount() {
         axios
-            .get("https://mern-blog-it.herokuapp.com/server/posts/")
+            .get(`${baseURL}/server/posts/`)
             .then((response) => {
                 // The order of posts is reversed to display the posts in reverse chronological order
                 this.setState({ posts: response.data.reverse() });

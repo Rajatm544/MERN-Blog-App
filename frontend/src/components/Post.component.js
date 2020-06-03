@@ -6,6 +6,7 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import alert css
 import CommentList from "./CommentList.component";
 
 // The same post component is used in the Postslist component and to SHOW the individual post component
+const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
 
 class Post extends Component {
     constructor(props) {
@@ -21,10 +22,7 @@ class Post extends Component {
         // If this component is rendered to SHOW individual Post component, make an API call to get that individual post
         if (!this.props.post) {
             axios
-                .get(
-                    "https://mern-blog-it.herokuapp.com/server/posts/" +
-                        this.props.match.params.id
-                )
+                .get(`${baseURL}/server/posts/${this.props.match.params.id}`)
                 .then((response) => {
                     this.setState({ post: response.data });
 
@@ -82,7 +80,7 @@ class Post extends Component {
 
     deletePost(id) {
         axios
-            .delete("https://mern-blog-it.herokuapp.com/server/posts/" + id)
+            .delete(`${baseURL}/server/posts/${id}`)
             .then((res) => console.log(res.data))
             .catch((err) => console.error(err));
 

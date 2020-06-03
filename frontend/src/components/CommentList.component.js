@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Comment from "./Comment.component";
 import axios from "axios";
 
+const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+
 class CommentList extends Component {
     constructor(props) {
         super(props);
@@ -45,8 +47,7 @@ class CommentList extends Component {
 
             axios
                 .post(
-                    "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
-                        this.props.post._id,
+                    `${baseURL}/server/posts/edit/${this.props.post._id}`,
                     updatedPost
                 )
                 .then((res) => window.location.reload())

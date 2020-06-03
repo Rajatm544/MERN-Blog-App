@@ -4,6 +4,8 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import sanitizeHtml from "sanitize-html";
 
+const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+
 class EditPost extends Component {
     constructor(props) {
         super(props);
@@ -23,10 +25,7 @@ class EditPost extends Component {
 
     componentDidMount() {
         axios
-            .get(
-                "https://mern-blog-it.herokuapp.com/server/posts/" +
-                    this.props.match.params.id
-            )
+            .get(`${baseURL}/server/posts/${this.props.match.params.id}`)
             .then((post) => {
                 this.setState({
                     title: post.data.title,
@@ -71,15 +70,13 @@ class EditPost extends Component {
 
         axios
             .post(
-                "https://mern-blog-it.herokuapp.com/server/posts/edit/" +
-                    this.props.match.params.id,
+                `${baseURL}/server/posts/edit/${this.props.match.params.id}`,
                 editedPost
             )
             .then(
                 // redirect to SHOW page
                 (res) =>
-                    (window.location =
-                        "/posts/show/" + this.props.match.params.id)
+                    (window.location = `/posts/show/${this.props.match.params.id}`)
             )
             .catch((err) => console.error(err));
     }

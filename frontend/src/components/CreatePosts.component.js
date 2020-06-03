@@ -4,6 +4,8 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import sanitizeHtml from "sanitize-html";
 
+const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+
 class CreatePosts extends Component {
     constructor(props) {
         super(props);
@@ -61,10 +63,7 @@ class CreatePosts extends Component {
         };
 
         axios
-            .post(
-                "https://mern-blog-it.herokuapp.com/server/posts/create/",
-                Blog
-            )
+            .post(`${baseURL}/server/posts/create/`, Blog)
             .then((res) => (window.location = "/posts"))
             .catch((err) => console.log(err));
     }
