@@ -4,9 +4,10 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Blog.It</title>
-        <meta name="description" content="" />
+        <meta name="description" content="Mern Stack Blog App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <meta name="author" content="Rajat M" />
+        <meta name="theme-color" content="#07a0ff" />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -47,7 +48,37 @@
     </head>
     <body>
         <noscript>You need to enable JavaScript for this app to work</noscript>
-        <div id="root"></div>
+        <div id="root">
+            <p class="offline">
+                Loading...
+            </p>
+        </div>
+        <script>
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", function () {
+                    navigator.serviceWorker
+                        .register("worker.js")
+                        .then(
+                            (registration) => {
+                                console.log(
+                                    "Worker registration successful",
+                                    registration.scope
+                                );
+                            },
+                            (err) => {
+                                console.log(
+                                    `Worker registration failed ${err}`
+                                );
+                            }
+                        )
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                });
+            } else {
+                console.log("Service Worker is not supported by browser.");
+            }
+        </script>
         <script
             src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

@@ -12,6 +12,11 @@ body {
     );
 }
 
+/* When Page is offline */
+.offline {
+    background-color: rgba(0, 81, 186, 1);
+}
+
 /* All full stops in the app */
 
 .full-stop {
