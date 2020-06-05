@@ -14,9 +14,8 @@
         }
     ],
     "orientation": "any",
-    "start_url": "https://mern-blog-it.herokuapp.com/",
     "description": "Blog App",
     "theme_color": "#07a0ff",
-    "background_color": "#ffffff",
+    "background_color": "#114c70",
     "display": "standalone"
 }
