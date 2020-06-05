@@ -17,5 +17,6 @@
     "description": "Blog App",
     "theme_color": "#07a0ff",
     "background_color": "#114c70",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "/"
 }
