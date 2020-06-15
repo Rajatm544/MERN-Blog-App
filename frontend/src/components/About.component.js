@@ -8,9 +8,9 @@ const About = () => {
             </h1>
             <main>
                 <p>
-                    This is a Blogging app that lets a user delve into a topic
-                    of choice and write a blog post, or read one of the already
-                    uploaded Blog posts.
+                    This is an installable Blogging app that lets a user delve
+                    into a topic of choice and write a blog post, or read one of
+                    the already uploaded Blog posts.
                 </p>
                 <p>
                     In order to write your very own Blog post, you can
