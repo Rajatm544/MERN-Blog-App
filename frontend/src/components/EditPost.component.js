@@ -76,7 +76,7 @@ class EditPost extends Component {
             .then(
                 // redirect to SHOW page
                 (res) =>
-                    (window.location = `/posts/show/${this.props.match.params.id}`)
+                    (window.location = `/posts/${this.props.match.params.id}`)
             )
             .catch((err) => console.error(err));
     }

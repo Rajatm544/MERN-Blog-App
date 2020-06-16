@@ -7,11 +7,7 @@ const Comment = (props) => {
                 <span>
                     {/* Jdenticon svg icon */}
                     <img
-                        src={
-                            "https://avatars.dicebear.com/v2/jdenticon/:" +
-                            props.img +
-                            ".svg"
-                        }
+                        src={`https://avatars.dicebear.com/v2/jdenticon/:${props.img}.svg`}
                         alt="jdenticon"
                     />
                 </span>

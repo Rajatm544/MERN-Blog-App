@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Import style
 import "./stylesheets/index.css";
@@ -19,13 +19,15 @@ const App = () => (
     <div className="container">
         <Router>
             <Navbar />
-            <Route path="/" exact component={Landing}></Route>
-            <Route path="/posts" exact component={PostsList}></Route>
-            <Route path="/posts/edit/:id" component={EditPost}></Route>
-            <Route path="/posts/:id" component={Post}></Route>
-            <Route path="/posts/create/" component={CreatePost}></Route>
-            <Route path="/login" exact component={Login}></Route>
-            <Route path="/about" exact component={About}></Route>
+            <Switch>
+                <Route path="/" exact component={Landing} />
+                <Route path="/posts" exact component={PostsList} />
+                <Route path="/posts/new/" exact component={CreatePost} />
+                <Route path="/posts/:id" exact component={Post} />
+                <Route path="/posts/edit/:id" exact component={EditPost} />
+                <Route path="/login" component={Login} />
+                <Route path="/about" component={About} />
+            </Switch>
             <Footer />
         </Router>
     </div>

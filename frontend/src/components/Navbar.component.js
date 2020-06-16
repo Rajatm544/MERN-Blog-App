@@ -78,7 +78,7 @@ class Navbar extends Component {
                         </li>
                         <li className="navbar-item">
                             <Link
-                                to="/posts/create"
+                                to="/posts/new"
                                 className="nav-link"
                                 // Collapse the navbar once an item is clicked
                                 onClick={this.handleNavbarCollapse}
