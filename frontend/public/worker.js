@@ -1,4 +1,4 @@
-const cacheName = "v1";
+const cacheName = "v2";
 
 // Install a service worker
 self.addEventListener("install", (event) => {
