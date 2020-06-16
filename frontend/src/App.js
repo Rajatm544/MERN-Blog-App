@@ -24,7 +24,7 @@ const App = () => (
                 <Route path="/posts" exact component={PostsList} />
                 <Route path="/posts/new/" exact component={CreatePost} />
                 <Route path="/posts/:id" exact component={Post} />
-                <Route path="/posts/edit/:id" exact component={EditPost} />
+                <Route path="/posts/:id/edit" exact component={EditPost} />
                 <Route path="/login" component={Login} />
                 <Route path="/about" component={About} />
             </Switch>

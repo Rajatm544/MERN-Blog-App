@@ -164,9 +164,7 @@ class Post extends Component {
                             {this.state.isLoggedIn ? (
                                 <span>
                                     <Link
-                                        to={
-                                            "/posts/edit/" + this.state.post._id
-                                        }
+                                        to={`/posts/${this.state.post._id}/edit`}
                                         className="btn btn-outline-primary"
                                     >
                                         Edit
