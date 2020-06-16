@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import alert css
-import CommentList from "./CommentList.component";
+import CommentList from "./CommentList";
 
 // The same post component is used in the Postslist component and to SHOW the individual post component
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";

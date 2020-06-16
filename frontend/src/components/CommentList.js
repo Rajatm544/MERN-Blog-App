@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Comment from "./Comment.component";
+import Comment from "./Comment";
 import axios from "axios";
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";

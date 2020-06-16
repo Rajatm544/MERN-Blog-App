@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Post from "./Post.component";
+import Post from "./Post";
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
 

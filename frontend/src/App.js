@@ -5,15 +5,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./stylesheets/index.css";
 
 //Import all components
-import Navbar from "./components/Navbar.component";
-import Landing from "./components/Landing.component";
-import Post from "./components/Post.component";
-import CreatePost from "./components/CreatePosts.component";
-import EditPost from "./components/EditPost.component";
-import PostsList from "./components/PostsList.component";
-import Login from "./components/Login.component";
-import About from "./components/About.component";
-import Footer from "./components/Footer.component";
+import Navbar from "./components/Navbar";
+import Landing from "./components/Landing";
+import Post from "./components/Post";
+import CreatePost from "./components/CreatePosts";
+import EditPost from "./components/EditPost";
+import PostsList from "./components/PostsList";
+import Login from "./components/Login";
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 const App = () => (
     <div className="container">
