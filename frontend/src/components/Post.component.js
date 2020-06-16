@@ -94,7 +94,7 @@ class Post extends Component {
             return (
                 <div className="card">
                     <div className="card-body">
-                        <Link to={"/posts/show/" + this.props.post._id}>
+                        <Link to={"/posts/" + this.props.post._id}>
                             <h1 className="post-title">
                                 {this.props.post.title}
                             </h1>

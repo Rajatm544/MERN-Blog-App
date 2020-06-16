@@ -22,7 +22,7 @@ const App = () => (
             <Route path="/" exact component={Landing}></Route>
             <Route path="/posts" exact component={PostsList}></Route>
             <Route path="/posts/edit/:id" component={EditPost}></Route>
-            <Route path="/posts/show/:id" component={Post}></Route>
+            <Route path="/posts/:id" component={Post}></Route>
             <Route path="/posts/create/" component={CreatePost}></Route>
             <Route path="/login" exact component={Login}></Route>
             <Route path="/about" exact component={About}></Route>
