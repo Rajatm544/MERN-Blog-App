@@ -47,4 +47,4 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Host app at PORT
-app.listen(PORT, () => console.log("Server is running at PORT " + PORT + "!"));
+app.listen(PORT, () => console.log(`Server is running at PORT ${PORT}!`));
