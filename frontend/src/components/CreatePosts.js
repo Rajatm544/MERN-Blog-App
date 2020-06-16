@@ -7,8 +7,8 @@ import sanitizeHtml from "sanitize-html";
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
 
 class CreatePosts extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             title: "",

@@ -27,6 +27,7 @@ class Navbar extends Component {
         }
     }
 
+    // Collapse navabr after clicked on mobile screens
     handleNavbarCollapse() {
         document.querySelector("#navbarTogglerDemo01").classList.remove("show");
     }

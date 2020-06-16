@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
 
@@ -129,5 +130,10 @@ class CommentList extends Component {
         );
     }
 }
+
+// PropTypes
+CommentList.propTypes = {
+    post: PropTypes.object.isRequired,
+};
 
 export default CommentList;

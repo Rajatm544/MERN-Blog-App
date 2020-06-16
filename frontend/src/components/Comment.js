@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Comment = (props) => {
     return (
@@ -16,6 +17,12 @@ const Comment = (props) => {
             </p>
         </div>
     );
+};
+
+// PropTypes
+Comment.propTypes = {
+    comment: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
 };
 
 export default Comment;
