@@ -23,6 +23,7 @@ class Post extends Component {
         if (!this.props.post) {
             axios
                 .get(`${baseURL}/server/posts/${this.props.match.params.id}`)
+                // .then((res) => console.log(res.json()))
                 .then((response) => {
                     this.setState({ post: response.data });
 
