@@ -1,4 +1,4 @@
-const cacheName = "v2";
+const cacheName = "v3";
 
 // Install a service worker
 self.addEventListener("install", (event) => {
@@ -30,7 +30,7 @@ self.addEventListener("fetch", (event) => {
 
 // Update a service worker
 self.addEventListener("activate", (event) => {
-    const cacheWhitelist = ["v2"];
+    const cacheWhitelist = ["v3"];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
