@@ -4,12 +4,10 @@ body {
     margin-top: 5em;
     margin-bottom: 5em;
     background: rgb(241, 251, 254);
-    background: linear-gradient(
-        93deg,
-        rgba(241, 251, 254, 1) 16%,
-        rgba(231, 249, 255, 1) 73%,
-        rgba(200, 233, 255, 0.9752275910364145) 100%
-    );
+    background: linear-gradient(93deg,
+            rgba(241, 251, 254, 1) 16%,
+            rgba(231, 249, 255, 1) 73%,
+            rgba(200, 233, 255, 0.9752275910364145) 100%);
 }
 
 /* When Page is offline */
@@ -32,12 +30,10 @@ body {
 .gold-hr {
     width: 100%;
     height: 1px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0),
-        rgb(255, 251, 0),
-        rgba(0, 0, 0, 0)
-    );
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0),
+            rgb(255, 251, 0),
+            rgba(0, 0, 0, 0));
 }
 
 /* Navbar component */
@@ -132,7 +128,7 @@ body {
     z-index: 1;
 }
 
-.about > h1 {
+.about>h1 {
     text-transform: uppercase;
     color: #114c70;
 }
@@ -174,7 +170,7 @@ body {
     font-size: large;
 }
 
-.new-post > h1 {
+.new-post>h1 {
     color: #07a0ff;
 }
 
@@ -269,6 +265,7 @@ body {
     padding: 1em;
     font-size: larger;
 }
+
 .alert:hover {
     opacity: 1;
     border: 0.1em solid #07a0ff;
@@ -352,7 +349,7 @@ body {
 
 /* EditPost component */
 
-.edit-post > h1 {
+.edit-post>h1 {
     color: #07a0ff;
 }
 
@@ -429,9 +426,9 @@ body {
 
 .comment img {
     display: inline-flex;
-    width: 50px;
-    height: 50px;
-    border-radius: 0.4em;
+    width: 60px;
+    height: 60px;
+    border-radius: 25%;
     border: 1px solid #08273a;
     padding: 0;
 }
@@ -527,10 +524,12 @@ footer #rajat:hover {
 ::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background: #114c70;
     border-radius: 20px;
 }
+
 ::-webkit-scrollbar-thumb {
     border: 1px solid rgb(251, 255, 0);
     background: #07a0ff;

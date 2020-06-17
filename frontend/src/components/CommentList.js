@@ -77,7 +77,7 @@ class CommentList extends Component {
                                     <Comment
                                         comment={currentcomment}
                                         key={n++}
-                                        img={n + "dkjaslc"} // img prop is used in generating jdenticon
+                                        img={n * 9} // img prop is used in generating jdenticon and requires a random string to generate the avatar
                                     />
                                 ))}
                         </div>
