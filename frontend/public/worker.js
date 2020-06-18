@@ -1,4 +1,4 @@
-const cacheName = "v6";
+const cacheName = "v7";
 
 // Install a service worker
 self.addEventListener("install", (event) => {
@@ -30,13 +30,12 @@ self.addEventListener("fetch", (event) => {
 
 // Update a service worker
 self.addEventListener("activate", (event) => {
-    const cacheWhitelist = ["v6"];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
-                cacheNames.map((cacheName) => {
-                    if (cacheWhitelist.indexOf(cacheName) === -1) {
-                        return caches.delete(cacheName);
+                cacheNames.map((cache) => {
+                    if (cache !== cacheName) {
+                        return caches.delete(cache);
                     }
                 })
             );
