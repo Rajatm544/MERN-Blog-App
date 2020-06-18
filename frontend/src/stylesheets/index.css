@@ -130,6 +130,13 @@ body {
 .about>h1 {
     text-transform: uppercase;
     color: #114c70;
+    text-shadow: -1px 0 white,
+        0 1px white,
+        1px 0 white,
+        0 -1px white;
+    ;
+    /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff, Strength=1);
 }
 
 /* Landing page's Jumbotron component*/
@@ -143,6 +150,18 @@ body {
     -moz-box-shadow: 3px 4px 5px -1px rgba(0, 81, 186, 1);
     box-shadow: 3px 4px 5px -1px rgba(0, 81, 186, 1);
     z-index: 1;
+}
+
+.jumbotron .display-4 {
+    color: #114c70;
+    text-shadow: -1px 0 white,
+        0 1px white,
+        1px 0 white,
+        0 -1px white;
+    ;
+    /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff, Strength=1);
+    /* IE<10 */
 }
 
 .jumbotron main {
@@ -203,6 +222,13 @@ body {
 
 .posts-list #title {
     color: #07a0ff;
+    text-shadow: -0.5px 0 #114c70,
+        0 0.5px #114c70,
+        0.5px 0 #114c70,
+        0 -0.5px #114c70;
+    ;
+    /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#114c70, Strength=1);
     font-weight: 800;
     margin: 0;
     padding: 0;
@@ -350,6 +376,13 @@ body {
 
 .edit-post>h1 {
     color: #07a0ff;
+    text-shadow: -0.5px 0 #114c70,
+        0 0.5px #114c70,
+        0.5px 0 #114c70,
+        0 -0.5px #114c70;
+    ;
+    /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#114c70, Strength=1);
 }
 
 .edit-post .edit-title {
@@ -394,6 +427,13 @@ body {
     font-size: larger;
     font-weight: bold;
     color: #07a0ff;
+    text-shadow: -0.5px 0 #114c70,
+        0 0.5px #114c70,
+        0.5px 0 #114c70,
+        0 -0.5px #114c70;
+    ;
+    /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#114c70, Strength=1);
     padding: 0;
     margin: 0;
     text-transform: uppercase;
