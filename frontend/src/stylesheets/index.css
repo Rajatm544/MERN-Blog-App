@@ -9,6 +9,19 @@ body {
             rgba(200, 233, 255, 0.975) 100%);
 }
 
+*::selection {
+    background: #114c70;
+    /* opacity: 1; */
+    color: white;
+    text-shadow: -0.5px 0 rgb(255, 251, 0),
+        0 0.5px rgb(255, 251, 0),
+        0.5px 0 rgb(255, 251, 0),
+        0 -0.5px rgb(255, 251, 0);
+    ;
+    /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=rgb(255, 251, 0), Strength=1);
+}
+
 /* When Page is offline */
 .offline {
     color: rgba(0, 81, 186, 1);
