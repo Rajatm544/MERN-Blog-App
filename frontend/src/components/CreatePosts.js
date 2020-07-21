@@ -89,24 +89,29 @@ class CreatePosts extends Component {
                             />
                         </div>
                         <div>
+                            {ClassicEditor.builtinPlugins.map((plugin) =>
+                                console.log(plugin.pluginName)
+                            )}
                             <CKEditor
                                 editor={ClassicEditor}
                                 onChange={this.handleEditorChange}
                                 config={{
-                                    toolbar: [
-                                        "heading",
-                                        "|",
-                                        "bold",
-                                        "italic",
-                                        "link",
-                                        "bulletedList",
-                                        "numberedList",
-                                        "blockquote",
-                                        "undo",
-                                        "redo",
-                                    ],
                                     placeholder:
                                         "Start typing your blog post here...",
+                                    toolbar: [
+                                        "Heading",
+                                        "|",
+                                        "Bold",
+                                        "Italic",
+                                        "Link",
+                                        "NumberedList",
+                                        "BulletedList",
+                                        "|",
+                                        "BlockQuote",
+                                        "MediaEmbed",
+                                        "Undo",
+                                        "Redo",
+                                    ],
                                 }}
                             />
                         </div>

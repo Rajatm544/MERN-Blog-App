@@ -108,16 +108,18 @@ class EditPost extends Component {
                                 onChange={this.handleEditorChange}
                                 config={{
                                     toolbar: [
-                                        "heading",
+                                        "Heading",
                                         "|",
-                                        "bold",
-                                        "italic",
-                                        "link",
-                                        "bulletedList",
-                                        "numberedList",
-                                        "blockquote",
-                                        "undo",
-                                        "redo",
+                                        "Bold",
+                                        "Italic",
+                                        "Link",
+                                        "NumberedList",
+                                        "BulletedList",
+                                        "|",
+                                        "BlockQuote",
+                                        "MediaEmbed",
+                                        "Undo",
+                                        "Redo",
                                     ],
                                 }}
                             />
