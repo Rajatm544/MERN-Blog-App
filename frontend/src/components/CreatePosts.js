@@ -44,6 +44,8 @@ class CreatePosts extends Component {
         this.setState({
             [name]: value,
         });
+
+        console.log(this.state.body);
     }
 
     handleSubmit(event) {
@@ -89,9 +91,6 @@ class CreatePosts extends Component {
                             />
                         </div>
                         <div>
-                            {ClassicEditor.builtinPlugins.map((plugin) =>
-                                console.log(plugin.pluginName)
-                            )}
                             <CKEditor
                                 editor={ClassicEditor}
                                 onChange={this.handleEditorChange}
