@@ -116,12 +116,20 @@ class Post extends Component {
 
                             <small>
                                 <time>
-                                    <span>Published on </span>
-                                    {this.props.post.date.substring(8, 10) +
-                                        "/" +
-                                        this.props.post.date.substring(5, 7) +
-                                        "/" +
-                                        this.props.post.date.substring(0, 4)}
+                                    <div>
+                                        <span>Published on </span>
+                                        {this.props.post.date.substring(8, 10) +
+                                            "/" +
+                                            this.props.post.date.substring(
+                                                5,
+                                                7
+                                            ) +
+                                            "/" +
+                                            this.props.post.date.substring(
+                                                0,
+                                                4
+                                            )}
+                                    </div>
                                 </time>
                             </small>
                             <br />
