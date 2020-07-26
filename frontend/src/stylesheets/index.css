@@ -252,7 +252,7 @@ body {
 }
 
 .posts-list .card-body {
-    padding: 0.8em;
+    padding: 1em;
     background: #0f4c72;
     border-radius: 0.4em;
     height: 100%;
@@ -342,7 +342,7 @@ body {
     font-family: "Noto Sans", sans-serif;
     background: #114c70;
     color: white;
-    padding: 1em 1em 0.5em 1em;
+    padding: 1.5em 2em 1em 2em;
     border-radius: 0.4em;
 }
 
@@ -467,11 +467,11 @@ body {
 
 .comment p {
     display: flex;
-    padding: 0.2em;
+    padding: 0.5em;
     margin: 0;
     justify-content: flex-start;
     color: #114c70;
-    font-size: large;
+    font-size: 1.1rem;
 }
 
 .comment img {
@@ -581,4 +581,37 @@ footer #rajat:hover {
     border: 1px solid rgb(251, 255, 0);
     background: #07a0ff;
     border-radius: 20px;
+}
+
+/* Handling display of images after they are pasted into the editor */
+figure.image img {
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    max-height: 40%;
+}
+
+/* Disabling the image caption option */
+.ck-content .image>figcaption {
+    display: none;
+}
+
+/* Changing certain properties for mobile screens */
+@media (max-width: 480px) {
+
+    /* Reduceing padding for individual blog posts */
+    .post .card-body {
+        padding: 0.8em;
+    }
+
+    /* Reducing font-size for post title */
+    .posts-list .card-body h1 {
+        font-size: 2rem;
+    }
+
+    /* Aallowing image to take up more width on smaller screens */
+    figure.image img {
+        width: 80%;
+        max-height: 60%;
+    }
 }
