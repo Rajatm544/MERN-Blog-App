@@ -141,19 +141,24 @@ class Post extends Component {
                             </h1>
                             <h3 className="author">{this.state.post.author}</h3>
                             <time>
-                                <span>Published on </span>
-                                {this.state.post.date
-                                    ? this.state.post.date.substring(8, 10) +
-                                      "/" +
-                                      this.state.post.date.substring(5, 7) +
-                                      "/" +
-                                      this.state.post.date.substring(0, 4)
-                                    : " "}
-                            </time>{" "}
-                            {"  ~ "}
-                            <span className="read-time">
-                                {this.state.readingTime} min read
-                            </span>
+                                <div>
+                                    <span>Published on </span>
+                                    {this.state.post.date
+                                        ? this.state.post.date.substring(
+                                              8,
+                                              10
+                                          ) +
+                                          "/" +
+                                          this.state.post.date.substring(5, 7) +
+                                          "/" +
+                                          this.state.post.date.substring(0, 4)
+                                        : " "}
+                                </div>
+
+                                <span className="read-time">
+                                    ({this.state.readingTime} min read)
+                                </span>
+                            </time>
                             <div
                                 className="post-body"
                                 dangerouslySetInnerHTML={{
