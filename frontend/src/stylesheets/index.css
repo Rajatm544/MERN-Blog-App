@@ -327,6 +327,8 @@ body {
 }
 
 .card-body time {
+    display: flex;
+    justify-content: space-between;
     color: rgb(255, 252, 70);
     opacity: 0.95;
     outline: none;
@@ -350,6 +352,11 @@ body {
     font-size: larger;
     text-shadow: none;
     padding-top: 0.5em;
+}
+
+.post .card-body .post-body a {
+    color: rgb(255, 252, 70);
+    text-decoration: underline;
 }
 
 .post .btn-outline-primary {
@@ -587,7 +594,7 @@ footer #rajat:hover {
 figure.image img {
     display: block;
     margin: 20px auto;
-    width: 50%;
+    width: 60%;
     max-height: 40%;
 }
 
@@ -609,9 +616,18 @@ figure.image img {
         font-size: 2rem;
     }
 
-    /* Aallowing image to take up more width on smaller screens */
+
+
+    .card-body .read-time {
+        display: inline-flex;
+        color: white;
+        opacity: 0.9;
+        font-size: smaller;
+    }
+
+    /* Allowing image to take up more width on smaller screens */
     figure.image img {
-        width: 80%;
+        width: 90%;
         max-height: 60%;
     }
 }
