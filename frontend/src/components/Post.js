@@ -164,7 +164,7 @@ class Post extends Component {
                                 </div>
 
                                 <span className="read-time">
-                                    ({this.state.readingTime} min read)
+                                    ~ {this.state.readingTime} min read
                                 </span>
                             </time>
                             <div
