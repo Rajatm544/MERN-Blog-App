@@ -3,20 +3,19 @@ body {
     font-family: "Nunito", sans-serif;
     margin: 5em 0;
     background: rgb(241, 251, 254);
-    background: linear-gradient(93deg,
-            rgba(241, 251, 254, 1) 16%,
-            rgba(231, 249, 255, 1) 73%,
-            rgba(200, 233, 255, 0.975) 100%);
+    background: linear-gradient(
+        93deg,
+        rgba(241, 251, 254, 1) 16%,
+        rgba(231, 249, 255, 1) 73%,
+        rgba(200, 233, 255, 0.975) 100%
+    );
 }
 
 *::selection {
     background: #114c70;
     color: white;
-    text-shadow: -0.5px 0 rgb(255, 251, 0),
-        0 0.5px rgb(255, 251, 0),
-        0.5px 0 rgb(255, 251, 0),
-        0 -0.5px rgb(255, 251, 0);
-    ;
+    text-shadow: -0.5px 0 rgb(255, 251, 0), 0 0.5px rgb(255, 251, 0),
+        0.5px 0 rgb(255, 251, 0), 0 -0.5px rgb(255, 251, 0);
     /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Glow(Color=rgb(255, 251, 0), Strength=1);
 }
@@ -41,10 +40,12 @@ body {
 .gold-hr {
     width: 100%;
     height: 1px;
-    background-image: linear-gradient(to right,
-            rgba(0, 0, 0, 0),
-            rgb(255, 251, 0),
-            rgba(0, 0, 0, 0));
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgb(255, 251, 0),
+        rgba(0, 0, 0, 0)
+    );
 }
 
 /* Navbar component */
@@ -139,14 +140,10 @@ body {
     z-index: 1;
 }
 
-.about>h1 {
+.about > h1 {
     text-transform: uppercase;
     color: #114c70;
-    text-shadow: -1px 0 white,
-        0 1px white,
-        1px 0 white,
-        0 -1px white;
-    ;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff, Strength=1);
 }
@@ -166,11 +163,7 @@ body {
 
 .jumbotron .display-4 {
     color: #114c70;
-    text-shadow: -1px 0 white,
-        0 1px white,
-        1px 0 white,
-        0 -1px white;
-    ;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff, Strength=1);
     /* IE<10 */
@@ -200,7 +193,7 @@ body {
     font-size: large;
 }
 
-.new-post>h1 {
+.new-post > h1 {
     color: #07a0ff;
 }
 
@@ -234,11 +227,8 @@ body {
 
 .posts-list #title {
     color: #07a0ff;
-    text-shadow: -0.5px 0 #114c70,
-        0 0.5px #114c70,
-        0.5px 0 #114c70,
+    text-shadow: -0.5px 0 #114c70, 0 0.5px #114c70, 0.5px 0 #114c70,
         0 -0.5px #114c70;
-    ;
     /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Glow(Color=#114c70, Strength=1);
     font-weight: 800;
@@ -393,13 +383,10 @@ body {
 
 /* EditPost component */
 
-.edit-post>h1 {
+.edit-post > h1 {
     color: #07a0ff;
-    text-shadow: -0.5px 0 #114c70,
-        0 0.5px #114c70,
-        0.5px 0 #114c70,
+    text-shadow: -0.5px 0 #114c70, 0 0.5px #114c70, 0.5px 0 #114c70,
         0 -0.5px #114c70;
-    ;
     /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Glow(Color=#114c70, Strength=1);
 }
@@ -446,11 +433,8 @@ body {
     font-size: larger;
     font-weight: bold;
     color: #07a0ff;
-    text-shadow: -0.5px 0 #114c70,
-        0 0.5px #114c70,
-        0.5px 0 #114c70,
+    text-shadow: -0.5px 0 #114c70, 0 0.5px #114c70, 0.5px 0 #114c70,
         0 -0.5px #114c70;
-    ;
     /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Glow(Color=#114c70, Strength=1);
     padding: 0;
@@ -594,18 +578,17 @@ footer #rajat:hover {
 figure.image img {
     display: block;
     margin: 20px auto;
-    width: 60%;
+    max-width: 60%;
     max-height: 40%;
 }
 
 /* Disabling the image caption option */
-.ck-content .image>figcaption {
+.ck-content .image > figcaption {
     display: none;
 }
 
 /* Changing certain properties for mobile screens */
 @media (max-width: 480px) {
-
     /* Reduceing padding for individual blog posts */
     .post .card-body {
         padding: 0.8em;
@@ -616,8 +599,6 @@ figure.image img {
         font-size: 2rem;
     }
 
-
-
     .card-body .read-time {
         display: inline-flex;
         color: white;
@@ -627,7 +608,7 @@ figure.image img {
 
     /* Allowing image to take up more width on smaller screens */
     figure.image img {
-        width: 90%;
-        max-height: 60%;
+        width: 98%;
+        height: 40%;
     }
 }
