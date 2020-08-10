@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100%;
     font-family: "Nunito", sans-serif;
@@ -20,12 +24,18 @@ body {
     filter: progid:DXImageTransform.Microsoft.Glow(Color=rgb(255, 251, 0), Strength=1);
 }
 
-/* When Page is offline */
-.offline {
-    color: rgba(0, 81, 186, 1);
-    font-size: larger;
-    text-transform: uppercase;
-    text-align: center;
+/* Styling the spinner that indicates loading */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner-grow {
+    width: 10em;
+    height: 10em;
+    background-color: #07a0ff;
+    border: 10px solid rgb(255, 251, 0);
 }
 
 /* All full stops in the app */
