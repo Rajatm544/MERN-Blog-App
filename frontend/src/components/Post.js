@@ -40,6 +40,12 @@ class Post extends Component {
                             this.setState({ readingTime: readingTime });
                         }
                     }
+
+                    // Remove display of loader
+                    document.querySelector(".spinner-grow").style.display =
+                        "none";
+                    // Set the 'post' class display to block
+                    document.querySelector(".post").style.display = "block";
                 })
                 .catch((err) => console.error(err));
         }
@@ -141,65 +147,83 @@ class Post extends Component {
         // To render the SHOW page for all the individual posts
         else {
             return (
-                <div className="post">
-                    <div className="card">
-                        <div className="card-body">
-                            <h1 className="post-title">
-                                {this.state.post.title}
-                            </h1>
-                            <h3 className="author">{this.state.post.author}</h3>
-                            <time>
-                                <div>
-                                    <span>Published on </span>
-                                    {this.state.post.date
-                                        ? this.state.post.date.substring(
-                                              8,
-                                              10
-                                          ) +
-                                          "/" +
-                                          this.state.post.date.substring(5, 7) +
-                                          "/" +
-                                          this.state.post.date.substring(0, 4)
-                                        : " "}
-                                </div>
-
-                                <span className="read-time">
-                                    ~ {this.state.readingTime} min read
-                                </span>
-                            </time>
-                            <div
-                                className="post-body"
-                                dangerouslySetInnerHTML={{
-                                    __html: this.state.post.body,
-                                }}
-                            ></div>
-                            {/* Display the 'Edit' and 'Delete' buttons only if the correct user is logged in */}
-                            {this.state.isLoggedIn ? (
-                                <span>
-                                    <Link
-                                        to={`/posts/${this.state.post._id}/edit`}
-                                        className="btn btn-outline-primary"
-                                    >
-                                        Edit
-                                    </Link>{" "}
-                                    <button
-                                        onClick={() =>
-                                            this.confirmDelete(
-                                                this.state.post._id
-                                            )
-                                        }
-                                        className="btn btn-outline-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </span>
-                            ) : (
-                                " "
-                            )}
+                <div>
+                    {/* A spinner to indicate loading, until the post is available in state */}
+                    <div className="spinner-container">
+                        <div className="spinner-grow" role="status">
+                            <span className="sr-only">Loading...</span>
                         </div>
                     </div>
-                    {/* Render the comments below the post */}
-                    <CommentList post={this.state.post} />
+
+                    {/* The post component that's hidden from view until the state is updated with the content */}
+                    <div className="post" style={{ display: "none" }}>
+                        <div className="card">
+                            <div className="card-body">
+                                <h1 className="post-title">
+                                    {this.state.post.title}
+                                </h1>
+                                <h3 className="author">
+                                    {this.state.post.author}
+                                </h3>
+                                <time>
+                                    <div>
+                                        <span>Published on </span>
+                                        {this.state.post.date
+                                            ? this.state.post.date.substring(
+                                                  8,
+                                                  10
+                                              ) +
+                                              "/" +
+                                              this.state.post.date.substring(
+                                                  5,
+                                                  7
+                                              ) +
+                                              "/" +
+                                              this.state.post.date.substring(
+                                                  0,
+                                                  4
+                                              )
+                                            : " "}
+                                    </div>
+
+                                    <span className="read-time">
+                                        ~ {this.state.readingTime} min read
+                                    </span>
+                                </time>
+                                <div
+                                    className="post-body"
+                                    dangerouslySetInnerHTML={{
+                                        __html: this.state.post.body,
+                                    }}
+                                ></div>
+                                {/* Display the 'Edit' and 'Delete' buttons only if the correct user is logged in */}
+                                {this.state.isLoggedIn ? (
+                                    <span>
+                                        <Link
+                                            to={`/posts/${this.state.post._id}/edit`}
+                                            className="btn btn-outline-primary"
+                                        >
+                                            Edit
+                                        </Link>{" "}
+                                        <button
+                                            onClick={() =>
+                                                this.confirmDelete(
+                                                    this.state.post._id
+                                                )
+                                            }
+                                            className="btn btn-outline-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </span>
+                                ) : (
+                                    " "
+                                )}
+                            </div>
+                        </div>
+                        {/* Render the comments below the post */}
+                        <CommentList post={this.state.post} />
+                    </div>
                 </div>
             );
         }
