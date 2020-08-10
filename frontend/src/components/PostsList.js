@@ -21,6 +21,9 @@ class PostsList extends Component {
             .then((response) => {
                 // The order of posts is reversed to display the posts in reverse chronological order
                 this.setState({ posts: response.data.reverse() });
+
+                // Remove display of the spinner
+                document.querySelector(".spinner-grow").style.display = "none";
             })
             .catch((err) => console.error(err));
     }
@@ -31,6 +34,14 @@ class PostsList extends Component {
                 <h1 id="title">
                     Latest Posts<span className="full-stop">.</span>
                 </h1>
+
+                {/* A spinner to indicate loading until posts are stored in state */}
+                <div className="spinner-container">
+                    <div className="spinner-grow" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+
                 {/* Display the posts in reverse chronological order */}
                 {this.state.posts
                     .slice(0, this.state.noOfPosts)
