@@ -1,8 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import axios from "axios";
-import Post from "./Post";
+const Post = lazy(() => import("./Post"));
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+const RenderLoader = () => (
+    <div className="spinner-container">
+        <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+        </div>
+    </div>
+);
 
 class PostsList extends Component {
     constructor() {
@@ -47,7 +54,9 @@ class PostsList extends Component {
                 {this.state.posts
                     .slice(0, this.state.noOfPosts)
                     .map((currentPost) => (
-                        <Post post={currentPost} key={currentPost._id} />
+                        <Suspense fallback={RenderLoader()}>
+                            <Post post={currentPost} key={currentPost._id} />
+                        </Suspense>
                     ))}
 
                 {/* To load more posts */}
@@ -64,7 +73,7 @@ class PostsList extends Component {
                         Load More Posts...
                     </button>
                 ) : (
-                    <p> </p>
+                    ""
                 )}
             </div>
         );

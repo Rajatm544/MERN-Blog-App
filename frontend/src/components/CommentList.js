@@ -1,9 +1,16 @@
-import React, { Component } from "react";
-import Comment from "./Comment";
+import React, { Component, lazy, Suspense } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+const Comment = lazy(() => import("./Comment"));
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+const renderLoader = () => (
+    <div className="spinner-container">
+        <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+        </div>
+    </div>
+);
 
 class CommentList extends Component {
     constructor(props) {
@@ -74,11 +81,13 @@ class CommentList extends Component {
                             {this.state.comments
                                 .slice(0, this.state.noOfComments)
                                 .map((currentcomment) => (
-                                    <Comment
-                                        comment={currentcomment}
-                                        key={n++}
-                                        img={`${n * 9}`} // img prop is used in generating jdenticon and requires a random string to generate the avatar
-                                    />
+                                    <Suspense fallback={renderLoader()}>
+                                        <Comment
+                                            comment={currentcomment}
+                                            key={n++}
+                                            img={`${n * 9}`} // img prop is used in generating jdenticon and requires a random string to generate the avatar
+                                        />
+                                    </Suspense>
                                 ))}
                         </div>
                     ) : (
