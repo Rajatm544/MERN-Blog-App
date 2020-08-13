@@ -44,12 +44,13 @@ class CreatePosts extends Component {
         this.setState({
             [name]: value,
         });
-
-        console.log(this.state.body);
     }
 
     handleSubmit(event) {
         event.preventDefault();
+
+        // Display a spinner until the post is submitted
+        document.querySelector(".spinner-container").style.display = "block";
 
         this.setState({ date: new Date() });
 
@@ -73,56 +74,69 @@ class CreatePosts extends Component {
     render() {
         if (this.state.isLoggedIn) {
             return (
-                <div className="new-post">
-                    <h1>
-                        Create New Blog Post<span className="full-stop">.</span>
-                    </h1>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <label className="new-title">Title: </label>
-                            <input
-                                className="form-control new-title"
-                                type="text"
-                                name="title"
-                                value={this.state.title}
-                                onChange={this.handleChange}
-                                required
-                                placeholder="The Best Title"
-                            />
+                <div>
+                    {/* A spinner to indicate loading until new post is submitted */}
+                    <div
+                        className="spinner-container"
+                        style={{ display: "none" }}
+                    >
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
                         </div>
-                        <div>
-                            <CKEditor
-                                editor={ClassicEditor}
-                                onChange={this.handleEditorChange}
-                                config={{
-                                    placeholder:
-                                        "Start typing your blog post here...",
-                                    toolbar: [
-                                        "Heading",
-                                        "|",
-                                        "Bold",
-                                        "Italic",
-                                        "Link",
-                                        "NumberedList",
-                                        "BulletedList",
-                                        "|",
-                                        "BlockQuote",
-                                        "MediaEmbed",
-                                        "Undo",
-                                        "Redo",
-                                    ],
-                                }}
-                            />
-                        </div>
-                        <br />
-                        <div className="form-group">
-                            <input
-                                type="submit"
-                                value="Create Post"
-                                className="btn btn-outline-primary btn-lg"
-                            />
-                        </div>
-                    </form>
+                    </div>
+
+                    <div className="new-post">
+                        <h1>
+                            Create New Blog Post
+                            <span className="full-stop">.</span>
+                        </h1>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <label className="new-title">Title: </label>
+                                <input
+                                    className="form-control new-title"
+                                    type="text"
+                                    name="title"
+                                    value={this.state.title}
+                                    onChange={this.handleChange}
+                                    required
+                                    placeholder="The Best Title"
+                                />
+                            </div>
+                            <div>
+                                <CKEditor
+                                    editor={ClassicEditor}
+                                    onChange={this.handleEditorChange}
+                                    config={{
+                                        placeholder:
+                                            "Start typing your blog post here...",
+                                        toolbar: [
+                                            "Heading",
+                                            "|",
+                                            "Bold",
+                                            "Italic",
+                                            "Link",
+                                            "NumberedList",
+                                            "BulletedList",
+                                            "|",
+                                            "BlockQuote",
+                                            "MediaEmbed",
+                                            "Undo",
+                                            "Redo",
+                                        ],
+                                    }}
+                                />
+                            </div>
+                            <br />
+                            <div className="form-group">
+                                <input
+                                    type="submit"
+                                    value="Create Post"
+                                    className="btn btn-outline-primary btn-lg"
+                                />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             );
         } else {

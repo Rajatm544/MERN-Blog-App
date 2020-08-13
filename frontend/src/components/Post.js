@@ -40,7 +40,7 @@ class Post extends Component {
                     }
 
                     // Remove display of loader
-                    document.querySelector(".spinner-grow").style.display =
+                    document.querySelector(".spinner-border").style.display =
                         "none";
                     // Set the 'post' class display to block
                     document.querySelector(".post").style.display = "block";
@@ -148,7 +148,7 @@ class Post extends Component {
                 <div>
                     {/* A spinner to indicate loading, until the post is available in state */}
                     <div className="spinner-container">
-                        <div className="spinner-grow" role="status">
+                        <div className="spinner-border" role="status">
                             <span className="sr-only">Loading...</span>
                         </div>
                     </div>

@@ -23,7 +23,8 @@ class PostsList extends Component {
                 this.setState({ posts: response.data.reverse() });
 
                 // Remove display of the spinner
-                document.querySelector(".spinner-grow").style.display = "none";
+                document.querySelector(".spinner-border").style.display =
+                    "none";
             })
             .catch((err) => console.error(err));
     }
@@ -37,7 +38,7 @@ class PostsList extends Component {
 
                 {/* A spinner to indicate loading until posts are stored in state */}
                 <div className="spinner-container">
-                    <div className="spinner-grow" role="status">
+                    <div className="spinner-border" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div>
