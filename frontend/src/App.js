@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./stylesheets/index.css";
 
 //Import all components
-const Navbar = lazy(() => import("./components/Navbar"));
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const Landing = lazy(() => import("./components/Landing"));
 const Post = lazy(() => import("./components/Post"));
 const CreatePost = lazy(() => import("./components/CreatePosts"));
@@ -13,7 +14,6 @@ const EditPost = lazy(() => import("./components/EditPost"));
 const PostsList = lazy(() => import("./components/PostsList"));
 const Login = lazy(() => import("./components/Login"));
 const About = lazy(() => import("./components/About"));
-const Footer = lazy(() => import("./components/Footer"));
 
 const renderLoader = () => (
     <div className="spinner-container">
@@ -26,8 +26,8 @@ const renderLoader = () => (
 const App = () => (
     <div className="container">
         <Router>
+            <Navbar />
             <Suspense fallback={renderLoader()}>
-                <Navbar />
                 <Switch>
                     <Route path="/" exact component={Landing} />
                     <Route path="/posts" exact component={PostsList} />
@@ -37,8 +37,8 @@ const App = () => (
                     <Route path="/login" component={Login} />
                     <Route path="/about" component={About} />
                 </Switch>
-                <Footer />
             </Suspense>
+            <Footer />
         </Router>
     </div>
 );
