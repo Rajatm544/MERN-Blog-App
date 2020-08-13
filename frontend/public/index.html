@@ -10,7 +10,7 @@
     <meta name="author" content="Rajat M" />
     <meta name="theme-color" content="#07a0ff" />
     <link rel="canonical" href="https://mern-blog-it.herokuapp.com" crossorigin="anonymous" />
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    <link rel="manifest" href="./manifest.json" crossorigin="use-credentials" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -25,14 +25,7 @@
 
 <body>
     <noscript>You need to enable JavaScript for this app to work</noscript>
-    <div id="root">
-        <!-- A preloader -->
-        <div className="spinner-container">
-            <div className="spinner-grow" role="status">
-
-            </div>
-        </div>
-    </div>
+    <div id="root"></div>
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", function () {
