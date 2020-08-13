@@ -24,16 +24,16 @@ body {
 
 /* Styling the spinner that indicates loading */
 .spinner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 10;
+    position: fixed;
+    bottom: 60%;
+    left: 45%;
 }
 
-.spinner-grow {
-    width: 10em;
-    height: 10em;
-    background-color: #07a0ff;
-    border: 10px solid rgb(255, 251, 0);
+.spinner-border {
+    width: 5em;
+    height: 5em;
+    color: #07a0ff;
 }
 
 /* All full stops in the app */
@@ -617,5 +617,10 @@ figure.image img {
     figure.image img {
         min-width: 100%;
         height: auto;
+    }
+
+    /* Assign position for the spinner */
+    .spinner-container {
+        left: 40%;
     }
 }
