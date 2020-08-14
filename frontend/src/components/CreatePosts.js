@@ -49,26 +49,33 @@ class CreatePosts extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        // Display a spinner until the post is submitted
-        document.querySelector(".spinner-container").style.display = "block";
-
         this.setState({ date: new Date() });
 
         // sanitize data before setting state
         const sanitizedData = sanitizeHtml(this.state.body.trim());
-        this.setState({ body: sanitizedData });
 
-        const Blog = {
-            title: this.state.title,
-            author: this.state.author,
-            body: this.state.body,
-            date: this.state.date,
-        };
+        // If the post body is too less, do not submit
+        if (sanitizedData.length < 400) {
+            alert("Cannot submit such a short post!");
+        } else {
+            // Display a spinner until the post is submitted
+            document.querySelector(".spinner-container").style.display =
+                "block";
 
-        axios
-            .post(`${baseURL}/server/posts/create/`, Blog)
-            .then((res) => (window.location = "/posts"))
-            .catch((err) => console.log(err));
+            this.setState({ body: sanitizedData });
+
+            const Blog = {
+                title: this.state.title,
+                author: this.state.author,
+                body: this.state.body,
+                date: this.state.date,
+            };
+
+            axios
+                .post(`${baseURL}/server/posts/create/`, Blog)
+                .then((res) => (window.location = "/posts"))
+                .catch((err) => console.log(err));
+        }
     }
 
     render() {
