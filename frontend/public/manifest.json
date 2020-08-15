@@ -15,9 +15,9 @@
         }
     ],
     "orientation": "portrait",
-    "description": "Blog App",
+    "description": "Blogging application built using the MERN stack by Rajat M",
     "theme_color": "#07a0ff",
     "background_color": "#114c70",
     "display": "standalone",
-    "start_url": "https://mern-blog-it.herokuapp.com/"
+    "start_url": "/"
 }
