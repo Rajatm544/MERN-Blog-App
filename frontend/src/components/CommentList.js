@@ -66,7 +66,6 @@ class CommentList extends Component {
     }
 
     render() {
-        let n = 0; //For sending a unique key
         return (
             <div className="comment-list">
                 <hr />
@@ -80,12 +79,14 @@ class CommentList extends Component {
                         <div>
                             {this.state.comments
                                 .slice(0, this.state.noOfComments)
-                                .map((currentcomment) => (
-                                    <Suspense fallback={renderLoader()}>
+                                .map((currentcomment, index) => (
+                                    <Suspense
+                                        key={index}
+                                        fallback={renderLoader()}
+                                    >
                                         <Comment
                                             comment={currentcomment}
-                                            key={n++}
-                                            img={`${n * 9}`} // img prop is used in generating jdenticon and requires a random string to generate the avatar
+                                            img={`${index * 9}`} // img prop is used in generating jdenticon and requires a random string to generate the avatar
                                         />
                                     </Suspense>
                                 ))}
