@@ -3,7 +3,7 @@ import axios from "axios";
 const Post = lazy(() => import("./Post"));
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
-const RenderLoader = () => (
+const renderLoader = () => (
     <div className="spinner-container">
         <div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>
@@ -54,8 +54,11 @@ class PostsList extends Component {
                 {this.state.posts
                     .slice(0, this.state.noOfPosts)
                     .map((currentPost) => (
-                        <Suspense fallback={RenderLoader()}>
-                            <Post post={currentPost} key={currentPost._id} />
+                        <Suspense
+                            key={currentPost._id}
+                            fallback={renderLoader()}
+                        >
+                            <Post post={currentPost} />
                         </Suspense>
                     ))}
 
