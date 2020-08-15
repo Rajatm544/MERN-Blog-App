@@ -103,6 +103,12 @@ class Post extends Component {
     render() {
         // When the posts are being rendered as a part of the PostsList component
         if (this.props.post) {
+            // Store the date that needs to be displayed
+            let date = new Date(this.props.post.date).toDateString();
+            let displayMonth = date.substring(4, 10);
+            let displayYear = date.substring(10);
+            let displayDate = `${displayMonth},${displayYear}`;
+
             return (
                 <div className="card">
                     <div className="card-body">
@@ -129,17 +135,7 @@ class Post extends Component {
                                 <time>
                                     <div>
                                         <span>Published on </span>
-                                        {this.props.post.date.substring(8, 10) +
-                                            "/" +
-                                            this.props.post.date.substring(
-                                                5,
-                                                7
-                                            ) +
-                                            "/" +
-                                            this.props.post.date.substring(
-                                                0,
-                                                4
-                                            )}
+                                        {displayDate}
                                     </div>
                                 </time>
                             </small>
@@ -151,6 +147,11 @@ class Post extends Component {
         }
         // To render the SHOW page for all the individual posts
         else {
+            // Store the date that needs to be displayed
+            let date = new Date(this.state.post.date).toDateString();
+            let displayMonth = date.substring(4, 10);
+            let displayYear = date.substring(10);
+            let displayDate = `${displayMonth},${displayYear}`;
             return (
                 <div>
                     {/* A spinner to indicate loading, until the post is available in state */}
@@ -173,22 +174,7 @@ class Post extends Component {
                                 <time>
                                     <div>
                                         <span>Published on </span>
-                                        {this.state.post.date
-                                            ? this.state.post.date.substring(
-                                                  8,
-                                                  10
-                                              ) +
-                                              "/" +
-                                              this.state.post.date.substring(
-                                                  5,
-                                                  7
-                                              ) +
-                                              "/" +
-                                              this.state.post.date.substring(
-                                                  0,
-                                                  4
-                                              )
-                                            : " "}
+                                        {displayDate}
                                     </div>
 
                                     <span className="read-time">
