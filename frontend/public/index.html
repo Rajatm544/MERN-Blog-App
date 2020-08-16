@@ -10,9 +10,10 @@
         <meta name="theme-color" content="#07a0ff" />
         <link
             rel="manifest"
-            href="/manifest.json"
+            href="%PUBLIC_URL%/manifest.json"
             crossorigin="use-credentials"
         />
+        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
         <link
             rel="canonical"
             href="https://mern-blog-it.herokuapp.com"
@@ -62,7 +63,7 @@
             if ("serviceWorker" in navigator) {
                 window.addEventListener("load", function () {
                     navigator.serviceWorker
-                        .register("./worker.js")
+                        .register("/worker.js")
                         .then(
                             (registration) => {
                                 console.log(
