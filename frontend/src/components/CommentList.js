@@ -2,6 +2,7 @@ import React, { Component, lazy, Suspense } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 const Comment = lazy(() => import("./Comment"));
+const Filter = require("bad-words"); // A NSFW filter for censoring the comments
 
 const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
 const renderLoader = () => (
@@ -47,8 +48,14 @@ class CommentList extends Component {
         // Submit comment only if it doesn't have only whitespaces
         if (this.state.body.trim()) {
             const { body } = this.state;
+            const filter = new Filter();
+
+            const filteredComment = filter.clean(body);
+
             // Store new comments at the beginning of the array, to display in reverse chronological order
-            this.setState({ comments: this.state.comments.unshift(body) });
+            this.setState({
+                comments: this.state.comments.unshift(filteredComment),
+            });
 
             let updatedPost = this.props.post;
             updatedPost.comments = this.state.comments;
