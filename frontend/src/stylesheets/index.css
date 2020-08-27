@@ -24,10 +24,15 @@ body {
 
 /* Styling the spinner that indicates loading */
 .spinner-container {
-    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    z-index: -1;
     position: fixed;
-    bottom: 60%;
-    left: 45%;
+    top: 0;
+    left: 0;
 }
 
 .spinner-border {
@@ -617,10 +622,5 @@ figure.image img {
     figure.image img {
         min-width: 100%;
         height: auto;
-    }
-
-    /* Assign position for the spinner */
-    .spinner-container {
-        left: 40%;
     }
 }
