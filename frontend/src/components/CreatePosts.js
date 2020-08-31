@@ -59,8 +59,7 @@ class CreatePosts extends Component {
             alert("Cannot submit such a short post!");
         } else {
             // Display a spinner until the post is submitted
-            document.querySelector(".spinner-container").style.display =
-                "block";
+            document.querySelector(".spinner-container").style.display = "flex";
 
             this.setState({ body: sanitizedData });
 

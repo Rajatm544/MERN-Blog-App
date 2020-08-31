@@ -58,7 +58,7 @@ class EditPost extends Component {
         event.preventDefault();
 
         // Display a spinner until the post is submitted
-        document.querySelector(".spinner-container").style.display = "block";
+        document.querySelector(".spinner-container").style.display = "flexbox";
 
         const sanitizedData = sanitizeHtml(this.state.body);
         this.setState({ body: sanitizedData });
