@@ -27,11 +27,18 @@ You can obtain the MONGO_URI after create a collectoin on [mongodb atlas](https:
 The app has been hosted on heroku [here](https://mern-blog-it.herokuapp.com/). P.S: You might have to wait for a few seconds for the heroku site to respond.
 
 <p align="center">
+
  <img alt="login page" src="https://i.ibb.co/bWBJLhB/Screenshot-834.png" width="534" height="300" />
  <img src="https://i.ibb.co/4sHTB83/Screenshot-835.png" alt="home page" width="534" height="300" />
  <img src="https://i.ibb.co/jg6rXpx/Screenshot-836.png" alt="rich editor" width="534" height="300" />
+ <br/>
+  <img alt="mobile mockup" src="https://i.ibb.co/ZK3VRNF/mern-blog-it-herokuapp-com-Moto-G4-2.png" width="200" height="356"/> &emsp;
+  <img alt="mobile mockup 2" src="https://i.ibb.co/1TkMF7Q/mern-blog-it-herokuapp-com-Moto-G4-1.png" height="356" width="200" />
+  <br/>
+  <img alt="tablet mockup" src="https://i.ibb.co/bKqyx4w/mern-blog-it-herokuapp-com-i-Pad-1.png" width="300" height="402"/> &emsp;
+  <img alt="tablet mockup 2" src="https://i.ibb.co/vVNQ61w/mern-blog-it-herokuapp-com-i-Pad.png" width="300" height="402"/>
+  
 </p>
-
 
 ## Info
 
