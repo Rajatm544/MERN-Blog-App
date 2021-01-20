@@ -2,20 +2,12 @@
 
   <img src=/frontend/public/android-chrome-192x192.png>
 
-<<<<<<< HEAD
 A MERN stack blogging PWA(Progressive Web App), with user authentication and social login using Twitter and Google accounts.
 
-=======
-
-A MERN stack blogging PWA(Progressive Web App), with user authentication and social login using Twitter and Google accounts.
-
-> > > > > > > 206aff04b0b71fb4f98c8974756f949866f04c3e
-> > > > > > > ![GitHub](https://img.shields.io/github/license/Rajatm544/MERN-Blog-App?style=flat-square) ![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat) ![GitHub last commit](https://img.shields.io/github/last-commit/Rajatm544/Mern-Blog-App?style=flat-square) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+![GitHub](https://img.shields.io/github/license/Rajatm544/MERN-Blog-App?style=flat-square) ![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat) ![GitHub last commit](https://img.shields.io/github/last-commit/Rajatm544/Mern-Blog-App?style=flat-square) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Getting Started
 
-<<<<<<< HEAD
-
 -   Run `git clone https://github.com/Rajatm544/MERN-Blog-App.git` using your CLI.
 -   Cd into the directories and `npm install`
 -   Create a `.env` file in the root directory and store the following:
@@ -26,20 +18,7 @@ A MERN stack blogging PWA(Progressive Web App), with user authentication and soc
 -   Run the server on PORT 5000
 -   npm start/yarn start
 
-=======
-
--   Run `git clone https://github.com/Rajatm544/MERN-Blog-App.git` using your CLI.
--   Cd into the directories and `npm install`
--   Create a `.env` file in the root directory and store the following:
-    -   MONGO_URI=Insert the correct connection URL for your MongoDB database
-    -   REACT_APP_GOOGLE_CLIENT_ID=Insert the valid google client id
-    -   REACT_APP_TWIITER_CONSUMER_ID=Insert the valid twitter consumer id
-    -   REACT_APP_TWITTER_CONSUMER_SECRET=Insert the valid twitter consumer id
--   Run the server on PORT 5000
--   npm start/yarn start
-
-> > > > > > > 206aff04b0b71fb4f98c8974756f949866f04c3e
-> > > > > > > You can obtain the MONGO_URI after create a collectoin on [mongodb atlas](https://www.mongodb.com/cloud/atlas). For the GOOGLE_CLIENT_ID and the TWITTER_CONSUMER_SECRET/ID, you will need to go through the Google developer console and the Twitter developer accounts page respectively
+You can obtain the MONGO_URI after create a collectoin on [mongodb atlas](https://www.mongodb.com/cloud/atlas). For the GOOGLE_CLIENT_ID and the TWITTER_CONSUMER_SECRET/ID, you will need to go through the Google developer console and the Twitter developer accounts page respectively
 
 ## Demo
 
@@ -62,22 +41,15 @@ The app has been hosted on heroku [here](https://mern-blog-it.herokuapp.com/). P
 ## Info
 
 -   This is a blogging PWA with user authentication and authorization. There is also a social login option, to login using your Twitter or Google accounts. The blog posts are displayed in the reverse chronological order by default.
-    <<<<<<< HEAD
--   # There is no exploitation of data, as the app only requires access to your accounts to fetch your unique ID for authentication/authorization purposes, and no personal details(except your registred user name on the social account) is used by the application.
 -   There is no exploitation of data, as the app only requires access to your accounts to fetch your unique ID for authentication/authorization purposes, and no personal details(except your registred user name on the social account) is used by the application.
-    > > > > > > > 206aff04b0b71fb4f98c8974756f949866f04c3e
 -   The frontend of the app is built using React and I have used Bootstrap classes for styling the compnents in addition to my local CSS styles.
 -   It is a blog app that lets users read the existing blog posts without logging in, and lets them share their thoughts using the anonymous comment section.
 -   Each comment has a unique jdenticon icon to represent the user who commented anonymously
 -   There is also a profanity filter to disallow usage of certain NSFW words in the comments' section. This is not an attempt to hinder freedom of speech, but instead it is a necessary aid to prevent misuse of the platform by nefarious users.
 -   In order to write a new blog post, the user has to login using one of the social media login options provided. The react-social-login package is being used to provide the user authentication and authorization.
 -   It has been deployed using Heroku's free tier and the Mongodb Atlas's cloud service is used for the database service. The access to the database is restricted to only 1 authorised user, and as mentioned earlier, there is no personal user data stored in it.
-    <<<<<<< HEAD
--   The rich editor used is the CKEditor 5's React WYSIWYG component (What You See Is What You Get) with a toolkit that supports bold, italics, hyperlinks, image embeds, indentations, blockquotes, video embeds, lists (ordered and unordered) and options to undo and redo changes as needed.
--   # The application currently has more then 60 registered users, you can check out the app [here](https://mern-blog-it.herokuapp.com/) or by using the link in the description section
 -   The rich editor used is the CKEditor 5's React WYSIWYG component (What You See Is What You Get) with a toolkit that supports bold, italics, hyperlinks, image embeds, indentations, blockquotes, video embeds, lists (ordered and unordered) and options to undo and redo changes as needed.
 -   The application currently has more then 60 registered users, you can check out the app [here](https://mern-blog-it.herokuapp.com/) or by using the link in the description section
-    > > > > > > > 206aff04b0b71fb4f98c8974756f949866f04c3e
 
 ## Challenges faced
 
@@ -101,18 +73,7 @@ The Bootstrap classes allowed for the design of the app to become a responsive o
 
 ### Dealing with an anonymous comment section
 
-<<<<<<< HEAD
 The choice to make the comment section anonymous was a deliberate design choice, as it makes it easier to let users engage with the application without much hassle. But the downside to this is that the comment section can seem dull/artificial, without a user name or photo associated with the comment. To overcome this, I have included a unique [Jdenticon](https://jdenticon.com/) or user icon, for every comment made under the blog post. The comments are displayed in reverse chronological order and will always have a unique icon associated with it! The other issue with the anonymous comments section, which became apparent after the initial build being pushed to production, was that users now used language that was NSFW. Since this is a project I intend to display on my portfolio, for potential employers, it was necessary to deal with words can be deemed NSFW. The easiest solution is to restrict only authenticated users to comment, along with their public social media name. But trolls with a fake account can easily bypass this. Hence it became necessary to censor certain words from the posted comments using \* symbols. This was accomplised using the package [bad-words](https://www.npmjs.com/package/bad-words) package to censor NSFW words unconditionally. There is scope for improvement in terms of implementing a custom profanity filter, but that seemed to be overkill for the task at hand. It is not my intention to hinder anybody's freedom of speech, but a reactionary decision against a few bad actors, in an effort to maintain the application's presentability.
-
-## Potential Improvements
-
--   A UX refactor.
--   Dashboard implementation for all registered users.
--   More social login options including the likes of Github, Facebook, Amazon or Apple.
--   Fuzzy Search implementation.
--   Integrations with popular blogging platforms like Medium or dev.to, to import already published articles.
--   # A system to 'like' or upvote potentially useful articles.
-    The choice to make the comment section anonymous was a deliberate design choice, as it makes it easier to let users engage with the application without much hassle. But the downside to this is that the comment section can seem dull/artificial, without a user name or photo associated with the comment. To overcome this, I have included a unique [Jdenticon](https://jdenticon.com/) or user icon, for every comment made under the blog post. The comments are displayed in reverse chronological order and will always have a unique icon associated with it! The other issue with the anonymous comments section, which became apparent after the initial build being pushed to production, was that users now used language that was NSFW. Since this is a project I intend to display on my portfolio, for potential employers, it was necessary to deal with words can be deemed NSFW. The easiest solution is to restrict only authenticated users to comment, along with their public social media name. But trolls with a fake account can easily bypass this. Hence it became necessary to censor certain words from the posted comments using \* symbols. This was accomplised using the package [bad-words](https://www.npmjs.com/package/bad-words) package to censor NSFW words unconditionally. There is scope for improvement in terms of implementing a custom profanity filter, but that seemed to be overkill for the task at hand. It is not my intention to hinder anybody's freedom of speech, but a reactionary decision against a few bad actors, in an effort to maintain the application's presentability.
 
 ## Potential Improvements
 
@@ -123,24 +84,12 @@ The choice to make the comment section anonymous was a deliberate design choice,
 -   Integrations with popular blogging platforms like Medium or dev.to, to import already published articles.
 -   A system to 'like' or upvote potentially useful articles.
 
-> > > > > > > 206aff04b0b71fb4f98c8974756f949866f04c3e
-
 Any more suggestions are always welcome in the PRs!
 
 ## Technologies Used
 
 Some of the technologies used in the development of this web application are as follow:
 
-<<<<<<< HEAD
-
--   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): It provides a free cloud service to store MongoDB collections.
--   [React.js](https://reactjs.org/): A JavaScript library for building user interfaces.
--   [Node.js](https://nodejs.org/en/): A runtime environment to help build fast server applications using JS.
--   [Express.js](https://expressjs.com/): A popular Node.js framework to build scalable server-side for web applications.
--   [Mongoose](https://mongoosejs.com/): An ODM(Object Data Modelling)library for MongoDB and Node.js
--   [Heroku](http://heroku.com/): A platform(PaaS) to deploy full stack web applications for free.
--   [JSON Web Tokens or JWTs](https://jwt.io/): A standard to securely authenticate HTTP requests
--   # [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/): A popular framework for building responsive, mobile-first sites.
 -   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): It provides a free cloud service to store MongoDB collections.
 -   [React.js](https://reactjs.org/): A JavaScript library for building user interfaces.
 -   [Node.js](https://nodejs.org/en/): A runtime environment to help build fast server applications using JS.
@@ -149,6 +98,5 @@ Some of the technologies used in the development of this web application are as 
 -   [Heroku](http://heroku.com/): A platform(PaaS) to deploy full stack web applications for free.
 -   [JSON Web Tokens or JWTs](https://jwt.io/): A standard to securely authenticate HTTP requests
 -   [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/): A popular framework for building responsive, mobile-first sites.
-    > > > > > > > 206aff04b0b71fb4f98c8974756f949866f04c3e
 
 It can be noted that React can be swapped out in favor of any other popular frontend framework like Vue, Angular, Svelte or Ember. The server side can be implemented using Deno/Koa, flask/Django and similarly the data can also be modelled using the similar idea but with a SQL type DB like PS-SQL or MSSQL.
