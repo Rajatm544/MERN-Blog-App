@@ -4,7 +4,7 @@
 
 A MERN stack blogging PWA(Progressive Web App), with user authentication and social login using Twitter and Google accounts.
 
-![GitHub](https://img.shields.io/github/license/Rajatm544/MERN-Blog-App?style=flat-square) ![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat) ![GitHub last commit](https://img.shields.io/github/last-commit/Rajatm544/Mern-Blog-App?style=flat-square) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+![GitHub](https://img.shields.io/github/license/Rajatm544/MERN-Blog-App?style=flat-square) ![Heroku](https://pyheroku-badge.herokuapp.com/?app=mern-blog-it&path=/&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/Rajatm544/Mern-Blog-App?style=flat-square) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Getting Started
 
