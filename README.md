@@ -8,7 +8,7 @@ A MERN stack blogging PWA(Progressive Web App), with user authentication and soc
 
 ## Getting Started
 
--   Run `git clone https://github.com/Rajatm544/MERN-Blog-App.git` using your CLI.
+-   Fork this repo and run the `git clone <forked repo>` command from your terminal/bash
 -   Cd into the directories and `npm install`
 -   Create a `.env` file in the root directory and store the following:
     -   MONGO_URI=Insert the correct connection URL for your MongoDB database
