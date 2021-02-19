@@ -1,2 +1,0 @@
-(this.webpackJsonpfrontend=this.webpackJsonpfrontend||[]).push([[10],{149:function(e,t,n){"use strict";n.r(t);var a=n(0),c=n.n(a);t.default=function(e){return c.a.createElement("div",{className:"comment"},c.a.createElement("p",null,c.a.createElement("span",null,c.a.createElement("img",{src:"https://avatars.dicebear.com/v2/jdenticon/:".concat(e.img,".svg"),alt:"jdenticon"})),c.a.createElement("span",{className:"comment-body"},e.comment)))}}}]);
-//# sourceMappingURL=10.bf35336d.chunk.js.map
