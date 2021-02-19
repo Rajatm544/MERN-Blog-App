@@ -12,8 +12,8 @@
         "frontend": "cd frontend && npm start"
     },
     "engines": {
-    "node": "14.x"
-  },
+        "node": "12.x"
+    },
     "author": "Rajat M",
     "license": "ISC",
     "dependencies": {
