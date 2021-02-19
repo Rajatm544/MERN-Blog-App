@@ -11,6 +11,9 @@
         "start": "node backend/server.js",
         "frontend": "cd frontend && npm start"
     },
+    "engines": {
+    "node": "14.x"
+  },
     "author": "Rajat M",
     "license": "ISC",
     "dependencies": {
