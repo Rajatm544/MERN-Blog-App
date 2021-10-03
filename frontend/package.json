@@ -13,6 +13,7 @@
         "axios": "^0.22.0",
         "bad-words": "^3.0.3",
         "browserlist": "^1.0.1",
+        "browserslist": "^4.17.2",
         "color-string": "^1.6.0",
         "dns-packet": "^5.3.0",
         "elliptic": "^6.5.4",
