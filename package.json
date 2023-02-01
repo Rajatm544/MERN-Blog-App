@@ -21,7 +21,7 @@
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.18.2",
-		"mongoose": "^5.9.5",
+		"mongoose": "^5.13.15",
 		"mpath": "^0.8.4",
 		"node-fetch": "^3.2.10",
 		"react-confirm-alert": "^2.6.1",
