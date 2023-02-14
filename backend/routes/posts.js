@@ -13,6 +13,11 @@ router.route("/create").post((req, res) => {
     //Retrieve data for post
     const { title, body, author } = req.body;
     const date = Date.parse(req.body.date);
+    
+    const titleExists = Post.findOne({ title })
+    if (titleExists) {
+        return res.status(406).json("Duplicate Title");
+    }
 
     const comments = [];
 
