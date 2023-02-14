@@ -4,6 +4,10 @@ const User = require("../models/user.model");
 //auth with google
 router.route("/login").post((req, res) => {
     const { username, socialId } = req.body;
+    
+    if (!username || !socialId ) {
+    return res.status(204).json("invalid input");
+  }
 
     // Find or create a new user and send it as response
     User.findOne({ socialId: socialId })
